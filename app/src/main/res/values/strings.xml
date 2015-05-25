@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyRide</string>
+
+    <string name="action_settings">Ustawienia</string>
+    <string name="title_activity_search_result_screen">Rezultaty wyszukiwania</string>
+    <string name="title_activity_main_screen">Wyszukaj połączenie</string>
+
+    <string name="main_screen_btn_search">Wyszukaj</string>
+    <string name="main_screen_txv_from">Miejscowość początkowa</string>
+    <string name="main_screen_txv_to">Miejscowość docelowa</string>
+
+</resources>
