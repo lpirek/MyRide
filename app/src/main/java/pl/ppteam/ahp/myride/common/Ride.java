@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by £ukasz on 2015-05-22.
  */
-public class Ride {
+public class Ride extends Item{
 
     private MeansOfTransport transportType;
 

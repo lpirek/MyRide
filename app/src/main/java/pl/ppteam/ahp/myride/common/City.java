@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by £ukasz on 2015-05-22.
  */
-public class City {
+public class City extends Item{
 
     private String name;
 
@@ -18,6 +18,13 @@ public class City {
     }
 
     public City(String name, double latitude, double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public City(int id, String name, double latitude, double longitude) {
+        this.id = id;
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

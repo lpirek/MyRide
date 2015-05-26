@@ -19,4 +19,13 @@ public class MainScreenManager {
         return result;
     }
 
+    public City getCity(CityQuery cityQuery) {
+        City result = null;
+
+        BaseManager manager = BaseManager.getInstance();
+        result = manager.getCity(cityQuery);
+
+        return result;
+    }
+
 }

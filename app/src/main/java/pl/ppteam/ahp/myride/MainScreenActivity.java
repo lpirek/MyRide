@@ -26,6 +26,9 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
 
     private List<City> cityList;
 
+    private CityQuery fromCityQuery;
+    private CityQuery toCityQuery;
+
     //Components
     private Button btn_search;
     private AutoCompleteTextView edt_from;
@@ -52,6 +55,9 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
 
     private void loadData() {
         cityList = manager.getCityList();
+
+        fromCityQuery = new CityQuery();
+        toCityQuery  = new CityQuery();
     }
 
     private void setListeners() {
@@ -94,9 +100,11 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
 
     private void searchRide() {
 
-        //Zrobiæ pobieranie w zale¿noœci od podanych nazw
-        City fromCity = new City();
-        City toCity = new City();
+        fromCityQuery.setName(edt_from.getText().toString());
+        toCityQuery.setName(edt_to.getText().toString());
+
+        City fromCity = manager.getCity(fromCityQuery);
+        City toCity = manager.getCity(toCityQuery);
 
         if (fromCity != null && toCity != null){
 
