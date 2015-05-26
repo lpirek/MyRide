@@ -13,6 +13,7 @@ import pl.ppteam.ahp.myride.tool.Logger;
 
 /**
  * Created by Łukasz on 2015-05-22.
+ * Rozwiązanie tymczasowe ze względu na krótki czas realizacji projektu
  */
 public class BaseManager {
 

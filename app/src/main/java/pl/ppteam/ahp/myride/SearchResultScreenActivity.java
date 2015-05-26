@@ -15,14 +15,13 @@ import java.util.List;
 
 import pl.ppteam.ahp.myride.adapter.RideAdapter;
 import pl.ppteam.ahp.myride.common.Ride;
+import pl.ppteam.ahp.myride.controller.BaseController;
 import pl.ppteam.ahp.myride.manager.SearchResultScreenManager;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 
 public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener{
-
-    public static final String QUERY_KEY = "query";
 
     private SearchResultScreenManager manager;
 
@@ -42,7 +41,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
         manager = new SearchResultScreenManager();
 
         Intent intent = getIntent();
-        query = (RideQuery)intent.getSerializableExtra(QUERY_KEY);
+        query = BaseController.getInstance().getRideQuery();
 
         loadComponents();
         loadData();

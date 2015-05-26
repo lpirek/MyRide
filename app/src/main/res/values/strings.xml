@@ -2,21 +2,22 @@
     <string name="app_name">MyRide</string>
 
     <string name="action_settings">Ustawienia</string>
+
     <string name="title_activity_search_result_screen">Rezultaty wyszukiwania</string>
     <string name="title_activity_main_screen">Wyszukaj połączenie</string>
+    <string name="title_activity_choose_criteria">Wybierz kryteria</string>
+    <string name="title_activity_compare_criteria">Porównaj kryteria</string>
+    <string name="title_activity_compare_ride">Porównaj połączenia</string>
+    <string name="title_activity_result_ranking_screen">Ranking</string>
 
     <string name="main_screen_btn_search">Wyszukaj</string>
     <string name="main_screen_txv_from">Miejscowość początkowa</string>
     <string name="main_screen_txv_to">Miejscowość docelowa</string>
 
     <string name="search_result_btn_approved">Porównaj</string>
-    <string name="title_activity_choose_criteria">ChooseCriteria</string>
 
     <string name="ride_connective"> &gt;&gt; </string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_compare_criteria">CompareCriteriaActivity</string>
-    <string name="title_activity_compare_ride">CompareRideActivity</string>
-    <string name="title_activity_result_ranking_screen">ResultRankingScreenActivity</string>
 
 </resources>

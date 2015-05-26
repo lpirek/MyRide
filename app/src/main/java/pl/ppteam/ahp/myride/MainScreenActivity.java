@@ -10,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
 import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.controller.BaseController;
 import pl.ppteam.ahp.myride.manager.MainScreenManager;
 import pl.ppteam.ahp.myride.query.CityQuery;
 import pl.ppteam.ahp.myride.query.RideQuery;
@@ -112,13 +114,14 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
             query.setFromCity(fromCity);
             query.setToCity(toCity);
 
+            BaseController.getInstance().setRideQuery(query);
+
             Intent intent = new Intent(this, SearchResultScreenActivity.class);
-            intent.putExtra(SearchResultScreenActivity.QUERY_KEY, query);
             startActivity(intent);
         }
         else
         {
-            //Wy�wietli� komunikat o braku podanej miejscowo�ci
+            Toast.makeText(this, "Nie udało się odnaleźć podanych miejscowości. Spróbuj jeszcze raz.", Toast.LENGTH_LONG).show();
         }
     }
 }
