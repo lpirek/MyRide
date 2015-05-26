@@ -59,6 +59,7 @@ public class RideAdapter extends BaseAdapter{
             holder.rideTo = (TextView) convertView.findViewById(R.id.item_to);
             holder.ridePrice = (TextView) convertView.findViewById(R.id.item_price);
 
+            convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
@@ -67,9 +68,9 @@ public class RideAdapter extends BaseAdapter{
 
         holder.rideFrom.setText(ride.getFromCity().getName());
         holder.rideTo.setText(ride.getToCity().getName());
-        holder.ridePrice.setText(new DecimalFormat("#.##").format(ride.getPrice()));
+        holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " z³");
 
-        holder.rideStart.setText(ride.getStartDate().toString());
+        holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
 
         return convertView;
     }

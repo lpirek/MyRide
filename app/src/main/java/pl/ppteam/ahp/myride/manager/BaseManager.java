@@ -1,10 +1,14 @@
 package pl.ppteam.ahp.myride.manager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.common.MeansOfTransport;
+import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.CityQuery;
+import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 /**
@@ -41,6 +45,13 @@ public class BaseManager {
         add(new City(8, "Gdynia", 54, 18));
         add(new City(9, "Sopot", 54, 18));
         add(new City(10, "Opole", 50, 17));
+    }};
+
+    ArrayList<Ride> rideDB = new ArrayList<Ride>() {{
+        add(new Ride(1, MeansOfTransport.BUS, new City(1, "Wroclaw", 51, 17), new City(2, "Krakow", 50, 19), 34.0, true,
+                new Date(), null, 180));
+        add(new Ride(1, MeansOfTransport.TRAIN, new City(1, "Wroclaw", 51, 17), new City(2, "Krakow", 50, 19), 27.0, true,
+                new Date(), null, 180));
     }};
 
     public List<City> getCityList(CityQuery query) {
@@ -81,4 +92,27 @@ public class BaseManager {
         return null;
     }
 
+    public List<Ride> getRideList(RideQuery query) {
+
+        List<Ride> result = new ArrayList<Ride>();
+
+        for(Ride ride : rideDB) {
+
+            boolean pass = true;
+
+            if (query.getFromCity() != null) {
+                pass = pass && query.getFromCity().getId() == ride.getFromCity().getId();
+            }
+
+            if (query.getToCity() != null) {
+                pass = pass && query.getToCity().getId() == ride.getToCity().getId();
+            }
+
+            if (pass) {
+                result.add(ride);
+            }
+        }
+
+        return result;
+    }
 }

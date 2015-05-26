@@ -11,6 +11,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
+import pl.ppteam.ahp.myride.adapter.RideAdapter;
+import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.manager.SearchResultScreenManager;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
@@ -21,6 +25,8 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public static final String QUERY_KEY = "query";
 
     private SearchResultScreenManager manager;
+
+    private List<Ride> rideList;
 
     private RideQuery query;
 
@@ -50,6 +56,10 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     }
 
     private void loadData() {
+        rideList = manager.getRideList(query);
+
+        RideAdapter adapter = new RideAdapter(this, rideList);
+        lv_result.setAdapter(adapter);
     }
 
     private void setListeners() {

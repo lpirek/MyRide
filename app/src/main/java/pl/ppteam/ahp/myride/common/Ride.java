@@ -25,6 +25,34 @@ public class Ride extends Item{
     //Zmienne dla projektu
     private boolean selected;
 
+    public Ride() {
+
+    }
+
+    public Ride(MeansOfTransport transportType, City fromCity, City toCity, double price, boolean toilet,
+                Date startDate, Date endDate, int rideTime) {
+        this.transportType = transportType;
+        this.fromCity = fromCity;
+        this.toCity = toCity;
+        this.price = price;
+        this.toilet = toilet;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.rideTime = rideTime;
+    }
+
+    public Ride(int id, MeansOfTransport transportType, City fromCity, City toCity, double price, boolean toilet,
+                Date startDate, Date endDate, int rideTime) {
+        this.id = id;
+        this.transportType = transportType;
+        this.fromCity = fromCity;
+        this.toCity = toCity;
+        this.price = price;
+        this.toilet = toilet;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.rideTime = rideTime;
+    }
 
     public City getFromCity() {
         return fromCity;
