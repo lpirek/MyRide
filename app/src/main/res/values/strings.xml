@@ -9,4 +9,6 @@
     <string name="main_screen_txv_from">Miejscowość początkowa</string>
     <string name="main_screen_txv_to">Miejscowość docelowa</string>
 
+    <string name="search_result_btn_approved">Porównaj</string>
+
 </resources>

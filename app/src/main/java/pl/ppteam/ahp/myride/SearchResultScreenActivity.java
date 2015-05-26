@@ -5,18 +5,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
 
 import pl.ppteam.ahp.myride.manager.SearchResultScreenManager;
 import pl.ppteam.ahp.myride.query.RideQuery;
+import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class SearchResultScreenActivity extends ActionBarActivity {
+public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener{
 
     public static final String QUERY_KEY = "query";
 
     private SearchResultScreenManager manager;
 
     private RideQuery query;
+
+    //Components
+    private Button btn_approved;
+    private ListView lv_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +45,8 @@ public class SearchResultScreenActivity extends ActionBarActivity {
     }
 
     private void loadComponents() {
+        btn_approved = (Button) this.findViewById(R.id.search_result_btn_approved);
+        lv_result = (ListView) this.findViewById(R.id.search_result_lv_result);
     }
 
     private void loadData() {
@@ -66,4 +78,23 @@ public class SearchResultScreenActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.search_result_btn_approved:
+
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+    }
+
 }
