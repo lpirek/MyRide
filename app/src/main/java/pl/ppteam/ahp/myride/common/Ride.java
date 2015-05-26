@@ -22,6 +22,10 @@ public class Ride extends Item{
     private int rideTime;       //d³ugoœæ wycieczki w minutach
 
 
+    //Zmienne dla projektu
+    private boolean selected;
+
+
     public City getFromCity() {
         return fromCity;
     }
@@ -94,6 +98,14 @@ public class Ride extends Item{
         this.rideTime = rideTime;
     }
 
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 
 
 }

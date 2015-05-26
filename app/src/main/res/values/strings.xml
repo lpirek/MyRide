@@ -12,6 +12,8 @@
     <string name="search_result_btn_approved">Porównaj</string>
     <string name="title_activity_choose_criteria">ChooseCriteria</string>
 
+    <string name="ride_connective">&gt;&gt;</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_compare_criteria">CompareCriteriaActivity</string>
     <string name="title_activity_compare_ride">CompareRideActivity</string>
