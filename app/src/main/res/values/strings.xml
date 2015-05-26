@@ -10,5 +10,11 @@
     <string name="main_screen_txv_to">Miejscowość docelowa</string>
 
     <string name="search_result_btn_approved">Porównaj</string>
+    <string name="title_activity_choose_criteria">ChooseCriteria</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_compare_criteria">CompareCriteriaActivity</string>
+    <string name="title_activity_compare_ride">CompareRideActivity</string>
+    <string name="title_activity_result_ranking_screen">ResultRankingScreenActivity</string>
 
 </resources>

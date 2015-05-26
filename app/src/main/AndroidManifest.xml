@@ -7,7 +7,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainScreenActivity"
             android:label="@string/title_activity_main_screen" >
@@ -17,12 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SearchResultScreenActivity"
             android:label="@string/title_activity_search_result_screen" >
         </activity>
-
+        <activity
+            android:name=".ChooseCriteriaScreenActivity"
+            android:label="@string/title_activity_choose_criteria" >
+        </activity>
+        <activity
+            android:name=".CompareCriteriaScreenActivity"
+            android:label="@string/title_activity_compare_criteria" >
+        </activity>
+        <activity
+            android:name=".CompareRideScreenActivity"
+            android:label="@string/title_activity_compare_ride" >
+        </activity>
+        <activity
+            android:name=".ResultRankingScreenActivity"
+            android:label="@string/title_activity_result_ranking_screen" >
+        </activity>
     </application>
 
 </manifest>
