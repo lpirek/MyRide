@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     private List<Ride> rideList;
 
+    private RideAdapter adapter;
     private RideQuery query;
 
     //Components
@@ -57,11 +59,12 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     private void loadData() {
         rideList = manager.getRideList(query);
 
-        RideAdapter adapter = new RideAdapter(this, rideList);
+        adapter = new RideAdapter(this, rideList);
         lv_result.setAdapter(adapter);
     }
 
     private void setListeners() {
+        btn_approved.setOnClickListener(this);
     }
 
 
@@ -93,11 +96,26 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.search_result_btn_approved:
-
+                chooseRide();
                 break;
             default:
                 Logger.info("Unkown action source!");
         }
+    }
+
+    private void chooseRide() {
+        List<Ride> result = adapter.getSelectedRides();
+
+        if (result.size() >= 2) {
+            BaseController.getInstance().setSelectedRides(result);
+
+            //Przejście dalej
+        }
+        else
+        {
+            Toast.makeText(this, "Wybrałeś zbyt mało pozycji.", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

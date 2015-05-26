@@ -1,7 +1,7 @@
 package pl.ppteam.ahp.myride.common;
 
 /**
- * Created by £ukasz on 2015-05-23.
+ * Created by ≈Åukasz on 2015-05-23.
  */
 public class PostCode extends Item {
 

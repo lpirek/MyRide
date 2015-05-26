@@ -1,5 +1,8 @@
 package pl.ppteam.ahp.myride.controller;
 
+import java.util.List;
+
+import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
@@ -23,6 +26,8 @@ public class BaseController {
 
 
     private RideQuery rideQuery;
+    private List<Ride> selectedRides;
+
 
     public RideQuery getRideQuery() {
         return rideQuery;
@@ -32,5 +37,12 @@ public class BaseController {
         this.rideQuery = rideQuery;
     }
 
+    public List<Ride> getSelectedRides() {
+        return selectedRides;
+    }
+
+    public void setSelectedRides(List<Ride> selectedRides) {
+        this.selectedRides = selectedRides;
+    }
 
 }

@@ -1,11 +1,24 @@
 package pl.ppteam.ahp.myride.common;
 
 /**
- * Created by £ukasz on 2015-05-22.
+ * Created by ≈Åukasz on 2015-05-22.
  */
 public class Criterium extends Item {
 
     private String name;
+
+    public Criterium() {
+
+    }
+
+    public Criterium(String name) {
+        this.name = name;
+    }
+
+    public Criterium(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getName() {
         return name;

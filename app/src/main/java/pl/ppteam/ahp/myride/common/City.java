@@ -3,15 +3,15 @@ package pl.ppteam.ahp.myride.common;
 import java.util.List;
 
 /**
- * Created by £ukasz on 2015-05-22.
+ * Created by  Åukasz on 2015-05-22.
  */
 public class City extends Item{
 
     private String name;
 
     private List<PostCode> postCode;
-    private double latitude; //szerokoœæ geograficzna
-    private double longitude; //d³ugoœæ geograficzna
+    private double latitude; //szerokoÅ›Ä‡ geograficzna
+    private double longitude; //dÅ‚ugoÅ›Ä‡ geograficzna
 
     public City() {
 

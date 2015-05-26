@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.content.Context;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import pl.ppteam.ahp.myride.common.Ride;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -46,6 +48,17 @@ public class RideAdapter extends BaseAdapter{
         return position;
     }
 
+    public List<Ride> getSelectedRides() {
+        List<Ride> result = new ArrayList<Ride>();
+
+        for(Ride ride : items) {
+            if (ride.isSelected())
+                result.add(ride);
+        }
+
+        return result;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -64,13 +77,19 @@ public class RideAdapter extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Ride ride = items.get(position);
+        final Ride ride = items.get(position);
 
         holder.rideFrom.setText(ride.getFromCity().getName());
         holder.rideTo.setText(ride.getToCity().getName());
         holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " zł");
-
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
+        holder.rideSelected.setSelected(ride.isSelected());
+        holder.rideSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ride.setSelected(isChecked);
+            }
+        });
 
         return convertView;
     }

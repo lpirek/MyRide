@@ -3,23 +3,23 @@ package pl.ppteam.ahp.myride.common;
 import java.util.Date;
 
 /**
- * Created by £ukasz on 2015-05-22.
+ * Created by ≈Åukasz on 2015-05-22.
  */
 public class Ride extends Item{
 
     private MeansOfTransport transportType;
 
-    private String url;         //ewentualny odnoúnik do strony ze ürÛd≥em
+    private String url;         //ewentualny odno≈õnik do strony ze ≈∫r√≥d≈Çem
 
     private City fromCity;
     private City toCity;
 
     private double price;
-    private boolean toilet;     //czy pojazd wyposaøony jest w toaletÍ
+    private boolean toilet;     //czy pojazd wyposa≈ºony jest w toaletƒô
 
     private Date startDate;
     private Date endDate;
-    private int rideTime;       //d≥ugoúÊ wycieczki w minutach
+    private int rideTime;       //d≈Çugo≈õƒá wycieczki w minutach
 
 
     //Zmienne dla projektu

@@ -1,15 +1,15 @@
 package pl.ppteam.ahp.myride.common;
 
 /**
- * Created by £ukasz on 2015-05-26.
+ * Created by ≈Åukasz on 2015-05-26.
  */
 public enum Wage {
 
     W9  (9, "jest ekstremalnie preferowane"),
     W7  (7, "jest bardzo silnie preferowane"),
     W5  (5, "jest silnie preferowane"),
-    W3  (3, "jest s≥aboo preferowane"),
-    W1  (1, "jest rÛwnowaøne");
+    W3  (3, "jest s≈Çaboo preferowane"),
+    W1  (1, "jest r√≥wnowa≈ºne");
 
 
     Wage(int value, String description) {

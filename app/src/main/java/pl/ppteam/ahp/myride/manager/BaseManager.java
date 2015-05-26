@@ -5,9 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.common.Criterium;
 import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.CityQuery;
+import pl.ppteam.ahp.myride.query.CriteriumQuery;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
@@ -51,8 +53,31 @@ public class BaseManager {
     ArrayList<Ride> rideDB = new ArrayList<Ride>() {{
         add(new Ride(1, MeansOfTransport.BUS, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 34.0, true,
                 new Date(), null, 180));
-        add(new Ride(1, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
+        add(new Ride(2, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
                 new Date(), null, 180));
+        add(new Ride(3, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 29.0, true,
+                new Date(), null, 180));
+        add(new Ride(4, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
+                new Date(), null, 180));
+        add(new Ride(5, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 50.0, true,
+                new Date(), null, 180));
+        add(new Ride(6, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
+                new Date(), null, 180));
+        add(new Ride(7, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
+                new Date(), null, 180));
+        add(new Ride(8, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 37.0, true,
+                new Date(), null, 180));
+    }};
+
+    ArrayList<Criterium> criteriumDB = new ArrayList<Criterium>() {{
+        add(new Criterium(1, "Cena"));
+        add(new Criterium(2, "Długość podróży"));
+        add(new Criterium(3, "Komfort"));
+        add(new Criterium(4, "Godzina odjazdu"));
+        add(new Criterium(5, "Godzina przyjazdu"));
+        add(new Criterium(6, "Rozmiar bagażu"));
+        add(new Criterium(7, "Dostęp do toalety"));
+        add(new Criterium(8, "Odległość od punktu docelowego"));
     }};
 
     public List<City> getCityList(CityQuery query) {
@@ -111,6 +136,26 @@ public class BaseManager {
 
             if (pass) {
                 result.add(ride);
+            }
+        }
+
+        return result;
+    }
+
+    public List<Criterium> getCriteriumList(CriteriumQuery query) {
+
+        List<Criterium> result = new ArrayList<Criterium>();
+
+        for(Criterium criterium : criteriumDB) {
+
+            boolean pass = true;
+
+            if (query.getName() != null) {
+                pass = pass && query.getName().toLowerCase().equals(criterium.getName().toLowerCase());
+            }
+
+            if (pass) {
+                result.add(criterium);
             }
         }
 
