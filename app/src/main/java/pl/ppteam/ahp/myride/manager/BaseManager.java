@@ -12,7 +12,7 @@ import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 /**
- * Created by �ukasz on 2015-05-22.
+ * Created by Łukasz on 2015-05-22.
  */
 public class BaseManager {
 
@@ -35,22 +35,22 @@ public class BaseManager {
      */
 
     ArrayList<City> cityDB = new ArrayList<City>() {{
-        add(new City(1, "Wroclaw", 51, 17));
-        add(new City(2, "Krakow", 50, 19));
+        add(new City(1, "Wrocław", 51, 17));
+        add(new City(2, "Kraków", 50, 19));
         add(new City(3, "Warszawa", 52, 21));
-        add(new City(4, "Torun", 53, 18));
-        add(new City(5, "Pozna�", 52, 16));
-        add(new City(6, "Lodz", 51, 19));
-        add(new City(7, "Gdansk", 54, 18));
+        add(new City(4, "Toruń", 53, 18));
+        add(new City(5, "Poznań", 52, 16));
+        add(new City(6, "Łódz", 51, 19));
+        add(new City(7, "Gdańsk", 54, 18));
         add(new City(8, "Gdynia", 54, 18));
         add(new City(9, "Sopot", 54, 18));
         add(new City(10, "Opole", 50, 17));
     }};
 
     ArrayList<Ride> rideDB = new ArrayList<Ride>() {{
-        add(new Ride(1, MeansOfTransport.BUS, new City(1, "Wroclaw", 51, 17), new City(2, "Krakow", 50, 19), 34.0, true,
+        add(new Ride(1, MeansOfTransport.BUS, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 34.0, true,
                 new Date(), null, 180));
-        add(new Ride(1, MeansOfTransport.TRAIN, new City(1, "Wroclaw", 51, 17), new City(2, "Krakow", 50, 19), 27.0, true,
+        add(new Ride(1, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
                 new Date(), null, 180));
     }};
 
@@ -63,7 +63,7 @@ public class BaseManager {
             boolean pass = true;
 
             if (query.getName() != null) {
-                pass = pass && query.getName().equals(city.getName());
+                pass = pass && query.getName().toLowerCase().equals(city.getName().toLowerCase());
             }
 
             if (pass) {
@@ -81,7 +81,7 @@ public class BaseManager {
             boolean pass = true;
 
             if (query.getName() != null) {
-                pass = pass && query.getName().equals(city.getName());
+                pass = pass && query.getName().toLowerCase().equals(city.getName().toLowerCase());
             }
 
             if (pass) {

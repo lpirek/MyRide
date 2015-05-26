@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by £ukasz on 2015-05-26.
+ * Created by ≈Åukasz on 2015-05-26.
  */
 public class RideAdapter extends BaseAdapter{
 
@@ -68,7 +68,7 @@ public class RideAdapter extends BaseAdapter{
 
         holder.rideFrom.setText(ride.getFromCity().getName());
         holder.rideTo.setText(ride.getToCity().getName());
-        holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " z≥");
+        holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " z≈Ç");
 
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
 
