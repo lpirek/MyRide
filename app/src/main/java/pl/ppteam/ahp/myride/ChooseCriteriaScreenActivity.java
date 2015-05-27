@@ -113,8 +113,8 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
             BaseController.getInstance().setSelectedCriteriums(result);
 
             //Dalej
-            //Intent intent = new Intent(this, CompareCriteriaScreenManager.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, CompareCriteriaScreenActivity.class);
+            startActivity(intent);
 
         } else {
             Toast.makeText(this, "Wybrałeś zbyt mało pozycji. Minimum 3.", Toast.LENGTH_SHORT).show();
