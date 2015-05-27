@@ -4,6 +4,8 @@ import java.util.List;
 
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.RideQuery;
+import pl.ppteam.ahp.myride.common.Criterium;
+import pl.ppteam.ahp.myride.query.CriteriumQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 /**
@@ -27,7 +29,8 @@ public class BaseController {
 
     private RideQuery rideQuery;
     private List<Ride> selectedRides;
-
+    private CriteriumQuery criteriumQuery;
+    private List<Criterium> selectedCriterium;
 
     public RideQuery getRideQuery() {
         return rideQuery;
@@ -45,4 +48,26 @@ public class BaseController {
         this.selectedRides = selectedRides;
     }
 
+
+    //Criterium
+
+    public CriteriumQuery getCriteriumQuery()
+    {
+        return  criteriumQuery;
+    }
+
+    public void setCriteriumQuery(CriteriumQuery criteriumQuery)
+    {
+        this.criteriumQuery = criteriumQuery;
+    }
+
+    public List<Criterium> getSelectedCriteriums()
+    {
+        return selectedCriterium;
+    }
+
+    public void setSelectedCriteriums(List<Criterium> selectedCriterium)
+    {
+        this.selectedCriterium = selectedCriterium;
+    }
 }

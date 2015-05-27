@@ -6,7 +6,7 @@ package pl.ppteam.ahp.myride.common;
 public class Criterium extends Item {
 
     private String name;
-
+    private boolean selected;
     public Criterium() {
 
     }
@@ -28,5 +28,12 @@ public class Criterium extends Item {
         this.name = name;
     }
 
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 
 }

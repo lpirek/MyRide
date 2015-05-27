@@ -18,6 +18,7 @@ import pl.ppteam.ahp.myride.adapter.RideAdapter;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.controller.BaseController;
 import pl.ppteam.ahp.myride.manager.SearchResultScreenManager;
+import pl.ppteam.ahp.myride.query.CriteriumQuery;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
@@ -110,6 +111,9 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
             BaseController.getInstance().setSelectedRides(result);
 
             //Przejście dalej
+            Intent intent = new Intent(this, ChooseCriteriaScreenActivity.class);
+            startActivity(intent);
+
         }
         else
         {
