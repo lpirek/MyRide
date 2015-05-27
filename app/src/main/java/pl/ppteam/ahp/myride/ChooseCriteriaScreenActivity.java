@@ -58,8 +58,8 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     }
 
     private void loadComponents() {
-        btn_criteria_admitted = (Button) this.findViewById(R.id.criterium_btn_admitted);
-        lv_criteria = (ListView) this.findViewById(R.id.criterium_lv);
+        btn_criteria_admitted = (Button) this.findViewById(R.id.choose_criteria_btn_admitted);
+        lv_criteria = (ListView) this.findViewById(R.id.choose_criteria_lv);
     }
 
     private void loadData() {
@@ -98,7 +98,7 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.criterium_btn_admitted:
+            case R.id.choose_criteria_btn_admitted:
                 chooseCriterium();
                 break;
             default:

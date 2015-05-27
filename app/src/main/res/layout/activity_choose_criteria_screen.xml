@@ -9,21 +9,21 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/criterium_lv"
+        android:id="@+id/choose_criteria_lv"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/criterium_btn_admitted" />
+        android:layout_above="@+id/choose_criteria_btn_admitted" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dalej"
-        android:id="@+id/criterium_btn_admitted"
+        android:text="@string/choose_criteria_btn_admitted"
+        android:id="@+id/choose_criteria_btn_admitted"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/criterium_lv"
-        android:layout_alignEnd="@+id/criterium_lv" />
+        android:layout_alignRight="@+id/choose_criteria_lv"
+        android:layout_alignEnd="@+id/choose_criteria_lv" />
 
 </RelativeLayout>
