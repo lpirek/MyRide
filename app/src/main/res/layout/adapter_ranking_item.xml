@@ -17,7 +17,7 @@
             android:text="Test"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="9dp"
             android:id="@+id/item_positionRanking" />
 
         <LinearLayout
@@ -34,25 +34,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Test"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="2dp"
                     android:id="@+id/item_r_start_date" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/item_r_price"
-                    android:text="Test"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginLeft="115dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="4dp"/>
 
 
             </LinearLayout>
@@ -68,11 +55,15 @@
                     android:text="Test"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
                     android:id="@+id/item_r_from" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
                     android:text="@string/ride_connective" />
 
                 <TextView
@@ -81,6 +72,8 @@
                     android:text="Test"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
                     android:id="@+id/item_r_to" />
 
             </LinearLayout>
@@ -98,15 +91,28 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:maxWidth="42dp"
-        android:maxHeight="42dp"
+        android:maxWidth="38dp"
+        android:maxHeight="38dp"
         android:scaleType="fitCenter"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:src="@drawable/train"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/item_r_price"
+        android:text="Test"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="60dp"/>
 
 
     <View
