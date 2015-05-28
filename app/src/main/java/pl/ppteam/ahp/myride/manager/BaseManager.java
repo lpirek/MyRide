@@ -77,7 +77,6 @@ public class BaseManager {
         add(new Criterium(5, "Godzina przyjazdu"));
         add(new Criterium(6, "Rozmiar bagażu"));
         add(new Criterium(7, "Dostęp do toalety"));
-        add(new Criterium(8, "Odległość od punktu docelowego"));
     }};
 
     public List<City> getCityList(CityQuery query) {

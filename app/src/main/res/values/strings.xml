@@ -19,6 +19,8 @@
     <string name="compare_criteria_screen_btn_confirm">Zatwierdź</string>
     <string name="compare_ride_screen_btn_confirm">Zatwierdź</string>
 
+    <string name="dialog_confirm">Zatwierdź</string>
+
     <string name="ride_connective"> &gt;&gt; </string>
 
     <string name="hello_world">Hello world!</string>

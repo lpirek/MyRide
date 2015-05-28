@@ -18,13 +18,17 @@ import pl.ppteam.ahp.myride.adapter.CriteriaCompareAdapter;
 import pl.ppteam.ahp.myride.common.CriteriaCompare;
 import pl.ppteam.ahp.myride.common.Criterium;
 import pl.ppteam.ahp.myride.controller.BaseController;
+import pl.ppteam.ahp.myride.dialog.CompareCriteriaDialog;
+import pl.ppteam.ahp.myride.dialog.IDialogListener;
 import pl.ppteam.ahp.myride.manager.ChooseCriteriaScreenManager;
 import pl.ppteam.ahp.myride.manager.CompareCriteriaScreenManager;
 import pl.ppteam.ahp.myride.query.CriteriumQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class CompareCriteriaScreenActivity extends ActionBarActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class CompareCriteriaScreenActivity extends ActionBarActivity implements View.OnClickListener, AdapterView.OnItemClickListener, IDialogListener {
+
+    private static final int DIALOG_CODE_COMPARE_CRITERIA = 0;
 
     private CompareCriteriaScreenManager manager;
 
@@ -65,6 +69,7 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity implements 
 
     private void setListeners() {
         btn_confirm.setOnClickListener(this);
+        lv_criteria.setOnItemClickListener(this);
     }
 
 
@@ -111,5 +116,23 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity implements 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        CriteriaCompare selectedCompare = (CriteriaCompare) adapter.getItem(position);
+
+        CompareCriteriaDialog dialog = new CompareCriteriaDialog(this, DIALOG_CODE_COMPARE_CRITERIA, selectedCompare);
+        dialog.setListener(this);
+        dialog.show();
+
     }
+
+    @Override
+    public void onPositiveClicked(int code) {
+        switch (code) {
+            case DIALOG_CODE_COMPARE_CRITERIA:
+                adapter.notifyDataSetChanged();
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
 }

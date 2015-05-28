@@ -5,12 +5,12 @@
     android:layout_height="60dp">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:padding="5dp"
+        android:padding="15dp"
         android:id="@+id/item_img_wage"
-        android:scaleType="centerInside"
-        android:alpha="0.7"
+        android:scaleType="fitCenter"
+        android:alpha="0.3"
         android:layout_margin="5dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
