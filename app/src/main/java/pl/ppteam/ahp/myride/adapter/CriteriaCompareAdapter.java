@@ -87,7 +87,7 @@ public class CriteriaCompareAdapter extends BaseAdapter {
                 break;
         }
 
-        holder.imgWage.setBackgroundResource(resourceId);
+        holder.imgWage.setImageResource(resourceId);
 
         return convertView;
     }
