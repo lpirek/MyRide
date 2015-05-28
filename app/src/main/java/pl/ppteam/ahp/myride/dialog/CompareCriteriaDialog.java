@@ -1,12 +1,7 @@
 package pl.ppteam.ahp.myride.dialog;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,11 +39,32 @@ public class CompareCriteriaDialog extends MainDialog {
         holder.criterium1 = (TextView) this.findViewById(R.id.dialog_item_criterium1);
         holder.criterium2 = (TextView) this.findViewById(R.id.dialog_item_criterium2);
         holder.sbr = (SeekBar) this.findViewById(R.id.dialog_sbr);
+        holder.img = (ImageView) this.findViewById(R.id.dialog_item_img);
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_btn_confirm);
 
         holder.criterium1.setText(compare.getCriterium1().getName());
         holder.criterium2.setText(compare.getCriterium2().getName());
-        holder.sbr.setProgress(getValue());
+        setProgress();
+        setImage();
+
+        holder.sbr.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                setImage();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+        });
 
         holder.btn_confirm.setOnClickListener(new View.OnClickListener() {
 
@@ -66,19 +82,63 @@ public class CompareCriteriaDialog extends MainDialog {
 
     }
 
-    private int getValue() {
+    private void setImage() {
+        int value = holder.sbr.getProgress();
+        int resourceId;
+
+        switch(value) {
+            case 0:
+                resourceId = R.drawable.nine_left;
+                break;
+            case 1:
+                resourceId = R.drawable.seven_left;
+                break;
+            case 2:
+                resourceId = R.drawable.five_left;
+                break;
+            case 3:
+                resourceId = R.drawable.three_left;
+                break;
+            case 5:
+                resourceId = R.drawable.three_right;
+                break;
+            case 6:
+                resourceId = R.drawable.five_right;
+                break;
+            case 7:
+                resourceId = R.drawable.seven_right;
+                break;
+            case 8:
+                resourceId = R.drawable.nine_right;
+                break;
+            default:
+                resourceId = R.drawable.equal;
+        }
+
+        holder.img.setImageResource(resourceId);
+    }
+
+    private void setProgress() {
+        int progress;
+
         switch (compare.getWage()) {
             case W3:
-                return compare.getDirection() == Direction.Rightside ? 5 : 3;
+                progress = compare.getDirection() == Direction.Rightside ? 5 : 3;
+                break;
             case W5:
-                return compare.getDirection() == Direction.Rightside ? 6 : 2;
+                progress = compare.getDirection() == Direction.Rightside ? 6 : 2;
+                break;
             case W7:
-                return compare.getDirection() == Direction.Rightside ? 7 : 1;
+                progress = compare.getDirection() == Direction.Rightside ? 7 : 1;
+                break;
             case W9:
-                return compare.getDirection() == Direction.Rightside ? 8 : 0;
+                progress = compare.getDirection() == Direction.Rightside ? 8 : 0;
+                break;
             default:
-                return 4;
+                progress = 4;
         }
+
+        holder.sbr.setProgress(progress);
     }
 
     private void setValue() {
@@ -133,6 +193,7 @@ public class CompareCriteriaDialog extends MainDialog {
         TextView criterium1;
         TextView criterium2;
         SeekBar sbr;
+        ImageView img;
         Button btn_confirm;
     }
 
