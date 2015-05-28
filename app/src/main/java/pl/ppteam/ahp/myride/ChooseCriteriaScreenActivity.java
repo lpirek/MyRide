@@ -113,7 +113,7 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
             BaseController.getInstance().setSelectedCriteriums(result);
 
             //Dalej
-            Intent intent = new Intent(this, CompareCriteriaScreenActivity.class);
+            Intent intent = new Intent(this, ResultRankingScreenActivity.class);
             startActivity(intent);
 
         } else {

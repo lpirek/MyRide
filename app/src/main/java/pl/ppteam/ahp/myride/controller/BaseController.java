@@ -1,7 +1,18 @@
 package pl.ppteam.ahp.myride.controller;
 
+import android.service.notification.NotificationListenerService;
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
+import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.common.Criterium;
@@ -69,5 +80,21 @@ public class BaseController {
     public void setSelectedCriteriums(List<Criterium> selectedCriterium)
     {
         this.selectedCriterium = selectedCriterium;
+    }
+
+    //Ranking
+
+    public List<Ride> getRankingRide()
+    {
+        ArrayList<Ride> rankingRide = new ArrayList<Ride>() {{
+            add(0,new Ride(1, MeansOfTransport.BUS, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 34.0, true,
+                    new Date(), null, 180));
+            add(1,new Ride(2, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
+                    new Date(), null, 180));
+            add(2,new Ride(3, MeansOfTransport.CAR, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 29.0, true,
+                    new Date(), null, 180));
+        }};
+
+        return rankingRide;
     }
 }

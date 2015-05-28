@@ -1,17 +1,59 @@
 package pl.ppteam.ahp.myride;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
+
+import pl.ppteam.ahp.myride.adapter.CriteriaAdapter;
+import pl.ppteam.ahp.myride.adapter.RankingAdapter;
+import pl.ppteam.ahp.myride.common.Ride;
+import pl.ppteam.ahp.myride.manager.ChooseCriteriaScreenManager;
+import pl.ppteam.ahp.myride.manager.ResultRankingScreenManager;
+import pl.ppteam.ahp.myride.query.CriteriumQuery;
 
 
 public class ResultRankingScreenActivity extends ActionBarActivity {
+
+    private ResultRankingScreenManager manager;
+
+    private List<Ride> rideList;
+
+    private RankingAdapter adapter;
+
+    //Components
+    private ListView lv_ranking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_ranking_screen);
+
+        manager = new ResultRankingScreenManager();
+
+        Intent intent = getIntent();
+
+        loadComponents();
+        loadData();
+
+    }
+
+    private void loadComponents() {
+        lv_ranking = (ListView) this.findViewById(R.id.ranking_lv);
+    }
+
+    private void loadData() {
+        rideList = manager.getRankingList();
+
+        adapter = new RankingAdapter(this, rideList);
+        lv_ranking.setAdapter(adapter);
     }
 
     @Override
@@ -35,4 +77,5 @@ public class ResultRankingScreenActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
