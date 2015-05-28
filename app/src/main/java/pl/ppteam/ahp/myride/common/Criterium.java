@@ -6,7 +6,10 @@ package pl.ppteam.ahp.myride.common;
 public class Criterium extends Item {
 
     private String name;
+
+    //Zmienne dla projektu
     private boolean selected;
+
     public Criterium() {
 
     }

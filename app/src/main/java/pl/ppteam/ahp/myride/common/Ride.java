@@ -21,6 +21,8 @@ public class Ride extends Item{
     private Date endDate;
     private int rideTime;       //długość wycieczki w minutach
 
+    private double rankingValue;
+    private int rankingPosition;
 
     //Zmienne dla projektu
     private boolean selected;
@@ -126,6 +128,21 @@ public class Ride extends Item{
         this.rideTime = rideTime;
     }
 
+    public double getRankingValue() {
+        return rankingValue;
+    }
+
+    public void setRankingValue(double rankingValue) {
+        this.rankingValue = rankingValue;
+    }
+
+    public int getRankingPosition() {
+        return rankingPosition;
+    }
+
+    public void setRankingPosition(int rankingPosition) {
+        this.rankingPosition = rankingPosition;
+    }
 
     public boolean isSelected() {
         return selected;
