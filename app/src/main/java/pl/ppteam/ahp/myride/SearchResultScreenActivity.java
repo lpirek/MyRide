@@ -33,7 +33,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     private RideQuery query;
 
     //Components
-    private Button btn_approved;
+    private Button btn_confirm;
     private ListView lv_result;
 
     @Override
@@ -53,8 +53,8 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     }
 
     private void loadComponents() {
-        btn_approved = (Button) this.findViewById(R.id.search_result_btn_approved);
-        lv_result = (ListView) this.findViewById(R.id.search_result_lv_result);
+        btn_confirm = (Button) this.findViewById(R.id.search_result_screen_btn_confirm);
+        lv_result = (ListView) this.findViewById(R.id.search_result_screen_lv);
     }
 
     private void loadData() {
@@ -65,7 +65,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     }
 
     private void setListeners() {
-        btn_approved.setOnClickListener(this);
+        btn_confirm.setOnClickListener(this);
     }
 
 
@@ -96,7 +96,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.search_result_btn_approved:
+            case R.id.search_result_screen_btn_confirm:
                 chooseRide();
                 break;
             default:

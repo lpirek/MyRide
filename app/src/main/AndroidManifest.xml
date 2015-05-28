@@ -21,15 +21,15 @@
         </activity>
         <activity
             android:name=".ChooseCriteriaScreenActivity"
-            android:label="@string/title_activity_choose_criteria" >
+            android:label="@string/title_activity_choose_criteria_screen" >
         </activity>
         <activity
             android:name=".CompareCriteriaScreenActivity"
-            android:label="@string/title_activity_compare_criteria" >
+            android:label="@string/title_activity_compare_criteria_screen" >
         </activity>
         <activity
             android:name=".CompareRideScreenActivity"
-            android:label="@string/title_activity_compare_ride" >
+            android:label="@string/title_activity_compare_ride_screen" >
         </activity>
         <activity
             android:name=".ResultRankingScreenActivity"

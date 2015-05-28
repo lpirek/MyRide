@@ -5,17 +5,19 @@
 
     <string name="title_activity_search_result_screen">Rezultaty wyszukiwania</string>
     <string name="title_activity_main_screen">Wyszukaj połączenie</string>
-    <string name="title_activity_choose_criteria">Wybierz kryteria</string>
-    <string name="title_activity_compare_criteria">Porównaj kryteria</string>
-    <string name="title_activity_compare_ride">Porównaj połączenia</string>
+    <string name="title_activity_choose_criteria_screen">Wybierz kryteria</string>
+    <string name="title_activity_compare_criteria_screen">Porównaj kryteria</string>
+    <string name="title_activity_compare_ride_screen">Porównaj połączenia</string>
     <string name="title_activity_result_ranking_screen">Ranking</string>
 
     <string name="main_screen_btn_search">Wyszukaj</string>
     <string name="main_screen_txv_from">Miejscowość początkowa</string>
     <string name="main_screen_txv_to">Miejscowość docelowa</string>
 
-    <string name="search_result_btn_approved">Porównaj</string>
-    <string name="choose_criteria_btn_admitted">Wybierz</string>
+    <string name="search_result_screen_btn_confirm">Porównaj</string>
+    <string name="choose_criteria_screen_btn_confirm">Wybierz</string>
+    <string name="compare_criteria_screen_btn_confirm">Zatwierdź</string>
+    <string name="compare_ride_screen_btn_confirm">Zatwierdź</string>
 
     <string name="ride_connective"> &gt;&gt; </string>
 

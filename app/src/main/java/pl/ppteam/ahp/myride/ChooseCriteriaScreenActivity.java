@@ -38,7 +38,7 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     private CriteriumQuery query;
 
     //Components
-    private Button btn_criteria_admitted;
+    private Button btn_confirm;
     private ListView lv_criteria;
 
     @Override
@@ -58,8 +58,8 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     }
 
     private void loadComponents() {
-        btn_criteria_admitted = (Button) this.findViewById(R.id.choose_criteria_btn_admitted);
-        lv_criteria = (ListView) this.findViewById(R.id.choose_criteria_lv);
+        btn_confirm = (Button) this.findViewById(R.id.choose_criteria_screen_btn_confirm);
+        lv_criteria = (ListView) this.findViewById(R.id.choose_criteria_screen_lv);
     }
 
     private void loadData() {
@@ -70,7 +70,7 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     }
 
     private void setListeners() {
-        btn_criteria_admitted.setOnClickListener(this);
+        btn_confirm.setOnClickListener(this);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.choose_criteria_btn_admitted:
+            case R.id.choose_criteria_screen_btn_confirm:
                 chooseCriterium();
                 break;
             default:
@@ -110,10 +110,10 @@ public class ChooseCriteriaScreenActivity extends ActionBarActivity implements V
         List<Criterium> result = adapter.getSelectCriteriums();
 
         if (result.size() >= 3) {
-            BaseController.getInstance().setSelectedCriteriums(result);
+            BaseController.getInstance().setSelectedCriteria(result);
 
             //Dalej
-            Intent intent = new Intent(this, ResultRankingScreenActivity.class);
+            Intent intent = new Intent(this, CompareCriteriaScreenActivity.class);
             startActivity(intent);
 
         } else {

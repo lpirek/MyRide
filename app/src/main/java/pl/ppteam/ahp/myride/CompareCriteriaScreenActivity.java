@@ -1,18 +1,72 @@
 package pl.ppteam.ahp.myride;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import pl.ppteam.ahp.myride.adapter.CriteriaAdapter;
+import pl.ppteam.ahp.myride.adapter.CriteriaCompareAdapter;
+import pl.ppteam.ahp.myride.common.CriteriaCompare;
+import pl.ppteam.ahp.myride.common.Criterium;
+import pl.ppteam.ahp.myride.controller.BaseController;
+import pl.ppteam.ahp.myride.manager.ChooseCriteriaScreenManager;
+import pl.ppteam.ahp.myride.manager.CompareCriteriaScreenManager;
+import pl.ppteam.ahp.myride.query.CriteriumQuery;
+import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class CompareCriteriaScreenActivity extends ActionBarActivity {
+public class CompareCriteriaScreenActivity extends ActionBarActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+
+    private CompareCriteriaScreenManager manager;
+
+    private List<CriteriaCompare> criteriaCompareList;
+
+    private CriteriaCompareAdapter adapter;
+
+    //Components
+    private Button btn_confirm;
+    private ListView lv_criteria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare_criteria_screen);
+
+        manager = new CompareCriteriaScreenManager();
+
+        Intent intent = getIntent();
+
+        loadComponents();
+        loadData();
+
+        setListeners();
     }
+
+    private void loadComponents() {
+        btn_confirm = (Button) this.findViewById(R.id.compare_criteria_screen_btn_confirm);
+        lv_criteria = (ListView) this.findViewById(R.id.compare_criteria_screen_lv);
+    }
+
+    private void loadData() {
+        criteriaCompareList = BaseController.getInstance().getSelectedCriteriaCompare();
+
+        adapter = new CriteriaCompareAdapter(this, criteriaCompareList);
+        lv_criteria.setAdapter(adapter);
+    }
+
+    private void setListeners() {
+        btn_confirm.setOnClickListener(this);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,5 +88,28 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.compare_criteria_screen_btn_confirm:
+                confirmComparation();
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
+    private void confirmComparation() {
+
+        Intent intent = new Intent(this, ResultRankingScreenActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }

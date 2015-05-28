@@ -66,8 +66,8 @@ public class CriteriaAdapter extends BaseAdapter{
             convertView = View.inflate(context, R.layout.adapter_criteria_item, null);
             holder = new ViewHolder();
 
-            holder.criteriumSelected = (CheckBox) convertView.findViewById(R.id.item_criterium_chkbx);
-            holder.criteriumName = (TextView) convertView.findViewById(R.id.item_criterium_name);
+            holder.criteriumSelected = (CheckBox) convertView.findViewById(R.id.item_chkbx);
+            holder.criteriumName = (TextView) convertView.findViewById(R.id.item_name);
 
             convertView.setTag(holder);
         } else {

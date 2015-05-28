@@ -54,13 +54,13 @@ public class RankingAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.adapter_ranking_item, null);
             holder = new ViewHolder();
 
-            holder.positionRanking = (TextView) convertView.findViewById(R.id.item_positionRanking);
-            holder.rideStart = (TextView) convertView.findViewById(R.id.item_r_start_date);
-            holder.rideFrom = (TextView) convertView.findViewById(R.id.item_r_from);
-            holder.rideTo = (TextView) convertView.findViewById(R.id.item_r_to);
-            holder.ridePrice = (TextView) convertView.findViewById(R.id.item_r_price);
-            holder.rideIcon = (ImageView) convertView.findViewById(R.id.item_r_img);
-            holder.disparityView = (View) convertView.findViewById(R.id.item_r_disparity);
+            holder.positionRanking = (TextView) convertView.findViewById(R.id.item_position_ranking);
+            holder.rideStart = (TextView) convertView.findViewById(R.id.item_start_date);
+            holder.rideFrom = (TextView) convertView.findViewById(R.id.item_from);
+            holder.rideTo = (TextView) convertView.findViewById(R.id.item_to);
+            holder.ridePrice = (TextView) convertView.findViewById(R.id.item_price);
+            holder.rideIcon = (ImageView) convertView.findViewById(R.id.item_img);
+            holder.disparityView = (View) convertView.findViewById(R.id.item_disparity);
 
             convertView.setTag(holder);
         } else {

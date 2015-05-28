@@ -46,7 +46,7 @@ public class ResultRankingScreenActivity extends ActionBarActivity {
     }
 
     private void loadComponents() {
-        lv_ranking = (ListView) this.findViewById(R.id.ranking_lv);
+        lv_ranking = (ListView) this.findViewById(R.id.result_ranking_screen_lv);
     }
 
     private void loadData() {
