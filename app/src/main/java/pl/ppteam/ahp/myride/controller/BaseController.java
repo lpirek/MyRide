@@ -8,13 +8,16 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import pl.ppteam.ahp.myride.common.City;
 import pl.ppteam.ahp.myride.common.CriteriaCompare;
 import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
+import pl.ppteam.ahp.myride.common.RideCompare;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.common.Criterium;
 import pl.ppteam.ahp.myride.query.CriteriumQuery;
@@ -43,9 +46,37 @@ public class BaseController {
     private CriteriumQuery criteriumQuery;
 
     private List<Ride> selectedRides;
+    private Map<String, List<RideCompare>> selectedRidesCompare;
+
     private List<Criterium> selectedCriteria;
     private List<CriteriaCompare> selectedCriteriaCompare;
 
+    private int index;
+
+
+    public Criterium getCurrentCriterium() {
+        return selectedCriteria.get(index);
+    }
+
+    public boolean hasNextCriterium() {
+        return index + 1 < selectedCriteria.size();
+    }
+
+    public void nextCriterium() {
+        index++;
+
+        if (index > selectedCriteria.size()) {
+            index = selectedCriteria.size();
+        }
+    }
+
+    public void prevCriterium() {
+        index--;
+
+        if (index < 0) {
+            index = 0;
+        }
+    }
 
     //Ride
 
@@ -63,8 +94,46 @@ public class BaseController {
 
     public void setSelectedRides(List<Ride> selectedRides) {
         this.selectedRides = selectedRides;
+        this.selectedRidesCompare = null;
+        this.index = 0;
     }
 
+    private Map<String, List<RideCompare>> getSelectedRidesCompare() {
+
+        if (selectedRidesCompare == null) {
+            selectedRidesCompare = new HashMap<String, List<RideCompare>>();
+
+            for (Criterium criterium : selectedCriteria) {
+
+                List<RideCompare> ridesCompare = new ArrayList<RideCompare>();
+
+                for (int i = 0; i < selectedRides.size() - 1; i++) {
+                    for (int k = i + 1; k < selectedRides.size(); k++) {
+                        RideCompare compare = new RideCompare(selectedRides.get(i), selectedRides.get(k));
+                        ridesCompare.add(compare);
+                    }
+                }
+
+                selectedRidesCompare.put(criterium.getName(), ridesCompare);
+            }
+
+        }
+
+        return selectedRidesCompare;
+    }
+
+    public List<RideCompare> getSelectedRidesCompare(Criterium criterium) {
+        if (selectedRidesCompare == null) {
+            getSelectedRidesCompare();
+        }
+
+        if (selectedRidesCompare.containsKey(criterium.getName())) {
+            return selectedRidesCompare.get(criterium.getName());
+        }
+        else {
+            return null;
+        }
+    }
 
     //Criterium
 
@@ -84,19 +153,22 @@ public class BaseController {
 
     public void setSelectedCriteria(List<Criterium> selectedCriteria) {
         this.selectedCriteria = selectedCriteria;
+        this.selectedCriteriaCompare = null;
+        this.index = 0;
     }
 
     public List<CriteriaCompare> getSelectedCriteriaCompare() {
 
-        selectedCriteriaCompare = new ArrayList<>();
+        if (selectedCriteriaCompare == null) {
+            selectedCriteriaCompare = new ArrayList<>();
 
-        for (int i = 0; i < selectedCriteria.size() - 1; i++) {
-            for (int k = i + 1; k <selectedCriteria.size(); k++) {
-
-                CriteriaCompare compare = new CriteriaCompare(selectedCriteria.get(i), selectedCriteria.get(k));
-                selectedCriteriaCompare.add(compare);
-
+            for (int i = 0; i < selectedCriteria.size() - 1; i++) {
+                for (int k = i + 1; k < selectedCriteria.size(); k++) {
+                    CriteriaCompare compare = new CriteriaCompare(selectedCriteria.get(i), selectedCriteria.get(k));
+                    selectedCriteriaCompare.add(compare);
+                }
             }
+
         }
 
         return selectedCriteriaCompare;

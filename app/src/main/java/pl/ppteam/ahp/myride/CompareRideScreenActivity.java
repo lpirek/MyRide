@@ -1,17 +1,76 @@
 package pl.ppteam.ahp.myride;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
+
+import pl.ppteam.ahp.myride.adapter.CriteriaCompareAdapter;
+import pl.ppteam.ahp.myride.adapter.RideCompareAdapter;
+import pl.ppteam.ahp.myride.common.CriteriaCompare;
+import pl.ppteam.ahp.myride.common.Criterium;
+import pl.ppteam.ahp.myride.common.RideCompare;
+import pl.ppteam.ahp.myride.controller.BaseController;
+import pl.ppteam.ahp.myride.dialog.CompareCriteriaDialog;
+import pl.ppteam.ahp.myride.dialog.IDialogListener;
+import pl.ppteam.ahp.myride.manager.CompareCriteriaScreenManager;
+import pl.ppteam.ahp.myride.manager.CompareRideScreenManager;
+import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class CompareRideScreenActivity extends ActionBarActivity {
+public class CompareRideScreenActivity extends ActionBarActivity implements View.OnClickListener, AdapterView.OnItemClickListener, IDialogListener {
+
+    private static final int DIALOG_CODE_COMPARE_RIDE = 0;
+
+    private CompareRideScreenManager manager;
+
+    private Criterium currentCriterium;
+    private List<RideCompare> rideCompareList;
+
+    private RideCompareAdapter adapter;
+
+    //Components
+    private Button btn_confirm;
+    private ListView lv_ride;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare_ride_screen);
+
+        manager = new CompareRideScreenManager();
+
+        Intent intent = getIntent();
+        currentCriterium = BaseController.getInstance().getCurrentCriterium();
+
+        loadComponents();
+        loadData();
+
+        setListeners();
+    }
+
+    private void loadComponents() {
+        btn_confirm = (Button) this.findViewById(R.id.compare_ride_screen_btn_confirm);
+        lv_ride = (ListView) this.findViewById(R.id.compare_ride_screen_lv);
+    }
+
+    private void loadData() {
+        rideCompareList = BaseController.getInstance().getSelectedRidesCompare(currentCriterium);
+
+        adapter = new RideCompareAdapter(this, rideCompareList);
+        lv_ride.setAdapter(adapter);
+    }
+
+    private void setListeners() {
+        btn_confirm.setOnClickListener(this);
+        lv_ride.setOnItemClickListener(this);
     }
 
     @Override
@@ -34,5 +93,55 @@ public class CompareRideScreenActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.compare_ride_screen_btn_confirm:
+                confirmComparation();
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
+    private void confirmComparation() {
+
+        if (BaseController.getInstance().hasNextCriterium()) {
+            BaseController.getInstance().nextCriterium();
+
+            Intent intent = new Intent(this, CompareRideScreenActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, ResultRankingScreenActivity.class);
+            startActivity(intent);
+        }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        //Tutaj otwarcie dialogu
+
+    }
+
+    @Override
+    public void onPositiveClicked(int code) {
+        switch (code) {
+            case DIALOG_CODE_COMPARE_RIDE:
+                adapter.notifyDataSetChanged();
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        BaseController.getInstance().prevCriterium();
+        super.onBackPressed();
     }
 }
