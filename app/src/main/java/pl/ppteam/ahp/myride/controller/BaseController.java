@@ -41,6 +41,9 @@ public class BaseController {
         Logger.info("Initialiaze BaseManager");
     }
 
+    /*
+     *
+     */
 
     private RideQuery rideQuery;
     private CriteriumQuery criteriumQuery;
@@ -50,6 +53,9 @@ public class BaseController {
 
     private List<Criterium> selectedCriteria;
     private List<CriteriaCompare> selectedCriteriaCompare;
+
+
+    private List<Ride> rankingRides;
 
     private int index;
 
@@ -135,6 +141,11 @@ public class BaseController {
         }
     }
 
+    public boolean compareRidesCompare(Criterium criterium) {
+
+        return true;
+    }
+
     //Criterium
 
     public CriteriumQuery getCriteriumQuery()
@@ -174,24 +185,23 @@ public class BaseController {
         return selectedCriteriaCompare;
     }
 
+    public boolean confirmCriteriaCompare() {
+
+        return true;
+    }
+
     //Ranking
 
     public void calculateRankingRide() {
+
+        rankingRides = new ArrayList<Ride>();
+
 
     }
 
     public List<Ride> getRankingRide()
     {
-        ArrayList<Ride> rankingRide = new ArrayList<Ride>() {{
-            add(0,new Ride(1, MeansOfTransport.BUS, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 34.0, true,
-                    new Date(), null, 180));
-            add(1,new Ride(2, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
-                    new Date(), null, 180));
-            add(2,new Ride(3, MeansOfTransport.CAR, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 29.0, true,
-                    new Date(), null, 180));
-        }};
-
-        return rankingRide;
+        return rankingRides;
     }
 
 
