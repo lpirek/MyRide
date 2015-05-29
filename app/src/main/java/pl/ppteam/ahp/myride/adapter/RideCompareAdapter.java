@@ -1,12 +1,18 @@
 package pl.ppteam.ahp.myride.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Node;
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import pl.ppteam.ahp.myride.R;
@@ -53,6 +59,22 @@ public class RideCompareAdapter extends BaseAdapter {
             holder.ride1 = (TextView) convertView.findViewById(R.id.item_ride1);
             holder.ride2 = (TextView) convertView.findViewById(R.id.item_ride2);
             holder.imgWage = (ImageView) convertView.findViewById(R.id.item_ride_img_wage);
+            holder.img_ride1 = (ImageView) convertView.findViewById(R.id.img_ride1);
+            holder.img_ride2 = (ImageView) convertView.findViewById(R.id.img_ride2);
+            holder.from_ride1 = (TextView) convertView.findViewById(R.id.item_ride1_from);
+            holder.to_ride1 = (TextView) convertView.findViewById(R.id.item_ride1_to);
+            holder.from_ride2 = (TextView) convertView.findViewById(R.id.item_ride2_from);
+            holder.to_ride2 = (TextView) convertView.findViewById(R.id.item_ride2_to);
+            holder.price_ride1 = (TextView) convertView.findViewById(R.id.item_price_ride1);
+            holder.price_ride2 = (TextView) convertView.findViewById(R.id.item_price_ride2);
+            holder.time_ride1 = (TextView) convertView.findViewById(R.id.item_time_ride1);
+            holder.time_ride2 = (TextView) convertView.findViewById(R.id.item_time_ride2);
+            holder.startDate_ride1 = (TextView) convertView.findViewById(R.id.item_startDate_ride1);
+            holder.startDate_ride2 = (TextView) convertView.findViewById(R.id.item_startDate_ride2);
+            holder.endDate_ride1 = (TextView) convertView.findViewById(R.id.item_endDate_ride1);
+            holder.endDate_ride2 = (TextView) convertView.findViewById(R.id.item_endDate_ride2);
+            holder.item_line_ride1 = (TextView) convertView.findViewById(R.id.item_line_ride1);
+            holder.item_line_ride2 = (TextView) convertView.findViewById(R.id.item_line_ride2);
 
             convertView.setTag(holder);
         } else {
@@ -63,6 +85,44 @@ public class RideCompareAdapter extends BaseAdapter {
 
         holder.ride1.setText(compare.getRide1().getTransportType().toString());
         holder.ride2.setText(compare.getRide2().getTransportType().toString());
+
+        holder.img_ride1.setImageResource(R.drawable.train);
+        holder.img_ride2.setImageResource(R.drawable.train);
+
+        holder.from_ride1.setText(compare.getRide1().getFromCity().getName());
+        holder.to_ride1.setText(compare.getRide1().getToCity().getName());
+
+        holder.from_ride2.setText(compare.getRide2().getFromCity().getName());
+        holder.to_ride2.setText(compare.getRide2().getToCity().getName());
+
+        holder.price_ride1.setText(new DecimalFormat("0.00").format(compare.getRide1().getPrice()) + " zł");
+        holder.price_ride2.setText(new DecimalFormat("0.00").format(compare.getRide2().getPrice()) + " zł");
+
+        holder.time_ride1.setText(Integer.toString(compare.getRide1().getRideTime()));
+        holder.time_ride2.setText(Integer.toString(compare.getRide2().getRideTime()));
+
+        holder.startDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getStartDate()));
+        holder.startDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getStartDate()));
+
+        if (compare.getRide1().getEndDate() == null)
+        {
+            holder.endDate_ride1.setText("");
+            holder.item_line_ride1.setVisibility(View.INVISIBLE);
+        }else {
+            holder.endDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getEndDate()));
+        }
+
+        if(compare.getRide2().getEndDate() == null)
+        {
+            holder.endDate_ride2.setText("");
+            holder.item_line_ride2.setVisibility(View.INVISIBLE);
+        }
+        else {
+            holder.endDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getEndDate()));
+        }
+
+
+
 
         int resourceId;
 
@@ -97,5 +157,29 @@ public class RideCompareAdapter extends BaseAdapter {
         TextView ride1;
         TextView ride2;
         ImageView imgWage;
+
+        ImageView img_ride1;
+        ImageView img_ride2;
+
+        TextView from_ride1;
+        TextView to_ride1;
+
+        TextView from_ride2;
+        TextView to_ride2;
+
+        TextView price_ride1;
+        TextView price_ride2;
+
+        TextView time_ride1;
+        TextView time_ride2;
+
+        TextView startDate_ride1;
+        TextView startDate_ride2;
+
+        TextView endDate_ride1;
+        TextView endDate_ride2;
+
+        TextView item_line_ride1;
+        TextView item_line_ride2;
     }
 }

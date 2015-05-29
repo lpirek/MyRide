@@ -63,7 +63,6 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     private void loadComponents() {
         btn_confirm = (Button) this.findViewById(R.id.compare_ride_screen_btn_confirm);
         lv_ride = (ListView) this.findViewById(R.id.compare_ride_screen_lv);
-        //headerView = View.inflate(this, R.layout.header, null);
         textView = (TextView) View.inflate(this, R.layout.header, null);
         textView.setText(currentCriterium.getName());
         lv_ride.addHeaderView(textView, null, false);
