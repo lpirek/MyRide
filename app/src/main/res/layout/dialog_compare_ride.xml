@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/dialog_item_ride1" />
+
+    <RelativeLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/dialog_ride_item_img"
+            android:scaleType="fitCenter"
+            android:alpha="0.3"
+            android:src="@drawable/equal"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"/>
+
+        <SeekBar
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialog_ride_sbr"
+            android:max="8"
+            android:progressDrawable="@android:color/transparent"
+            android:background="@drawable/slider"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/dialog_item_ride2"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="@string/dialog_confirm"
+        android:id="@+id/dialog_ride_btn_confirm"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

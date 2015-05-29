@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ import pl.ppteam.ahp.myride.common.CriteriaCompare;
 import pl.ppteam.ahp.myride.common.Criterium;
 import pl.ppteam.ahp.myride.common.RideCompare;
 import pl.ppteam.ahp.myride.controller.BaseController;
-import pl.ppteam.ahp.myride.dialog.CompareCriteriaDialog;
+import pl.ppteam.ahp.myride.dialog.CompareRideDialog;
 import pl.ppteam.ahp.myride.dialog.IDialogListener;
 import pl.ppteam.ahp.myride.manager.CompareCriteriaScreenManager;
 import pl.ppteam.ahp.myride.manager.CompareRideScreenManager;
@@ -39,6 +41,8 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     //Components
     private Button btn_confirm;
     private ListView lv_ride;
+    private View headerView;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,10 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     private void loadComponents() {
         btn_confirm = (Button) this.findViewById(R.id.compare_ride_screen_btn_confirm);
         lv_ride = (ListView) this.findViewById(R.id.compare_ride_screen_lv);
+        //headerView = View.inflate(this, R.layout.header, null);
+        textView = (TextView) View.inflate(this, R.layout.header, null);
+        textView.setText(currentCriterium.getName());
+        lv_ride.addHeaderView(textView, null, false);
     }
 
     private void loadData() {
@@ -127,7 +135,11 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         //Tutaj otwarcie dialogu
+        RideCompare selectedCompare = (RideCompare) adapter.getItem(position);
 
+        CompareRideDialog dialog = new CompareRideDialog(this, DIALOG_CODE_COMPARE_RIDE, selectedCompare);
+        dialog.setListener(this);
+        dialog.show();
     }
 
     @Override
