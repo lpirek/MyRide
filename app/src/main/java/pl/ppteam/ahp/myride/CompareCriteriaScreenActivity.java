@@ -108,6 +108,8 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity implements 
 
     private void confirmComparation() {
 
+        BaseController.getInstance().confirmCriteriaCompare();
+
         Intent intent = new Intent(this, CompareRideScreenActivity.class);
         startActivity(intent);
 

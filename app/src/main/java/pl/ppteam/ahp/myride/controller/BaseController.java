@@ -15,6 +15,7 @@ import java.util.Map;
 
 import pl.ppteam.ahp.myride.common.City;
 import pl.ppteam.ahp.myride.common.CriteriaCompare;
+import pl.ppteam.ahp.myride.common.Matrix;
 import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.common.RideCompare;
@@ -187,7 +188,10 @@ public class BaseController {
 
     public boolean confirmCriteriaCompare() {
 
-        return true;
+        Matrix m = new Matrix();
+        m.createCriteriaMatrix(selectedCriteriaCompare, selectedCriteria.size());
+
+        return m.isConsistent();
     }
 
     //Ranking
