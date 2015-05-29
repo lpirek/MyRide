@@ -55,6 +55,8 @@ public class BaseController {
     private List<Criterium> selectedCriteria;
     private List<CriteriaCompare> selectedCriteriaCompare;
 
+    private Matrix criteriaMatrix;
+    private Map<String, Matrix> ridesMatrix;
 
     private List<Ride> rankingRides;
 
@@ -102,10 +104,11 @@ public class BaseController {
     public void setSelectedRides(List<Ride> selectedRides) {
         this.selectedRides = selectedRides;
         this.selectedRidesCompare = null;
+        this.ridesMatrix = null;
         this.index = 0;
     }
 
-    private Map<String, List<RideCompare>> getSelectedRidesCompare() {
+    private Map<String, List<RideCompare>> initSelectedRidesCompare() {
 
         if (selectedRidesCompare == null) {
             selectedRidesCompare = new HashMap<String, List<RideCompare>>();
@@ -131,7 +134,7 @@ public class BaseController {
 
     public List<RideCompare> getSelectedRidesCompare(Criterium criterium) {
         if (selectedRidesCompare == null) {
-            getSelectedRidesCompare();
+            initSelectedRidesCompare();
         }
 
         if (selectedRidesCompare.containsKey(criterium.getName())) {
@@ -142,9 +145,20 @@ public class BaseController {
         }
     }
 
-    public boolean compareRidesCompare(Criterium criterium) {
+    public boolean confirmRidesCompare(Criterium criterium) {
 
-        return true;
+        if (ridesMatrix == null) {
+            ridesMatrix = new HashMap<String, Matrix>();
+        }
+
+        List<RideCompare> compare = getSelectedRidesCompare(criterium);
+
+        Matrix rideMatrix = new Matrix();
+        rideMatrix.createRidesMatrix(compare, selectedRides.size());
+
+        ridesMatrix.put(criterium.getName(), rideMatrix);
+
+        return rideMatrix.isConsistent();
     }
 
     //Criterium
@@ -166,6 +180,7 @@ public class BaseController {
     public void setSelectedCriteria(List<Criterium> selectedCriteria) {
         this.selectedCriteria = selectedCriteria;
         this.selectedCriteriaCompare = null;
+        this.criteriaMatrix = null;
         this.index = 0;
     }
 
@@ -188,18 +203,54 @@ public class BaseController {
 
     public boolean confirmCriteriaCompare() {
 
-        Matrix m = new Matrix();
-        m.createCriteriaMatrix(selectedCriteriaCompare, selectedCriteria.size());
+        criteriaMatrix = new Matrix();
+        criteriaMatrix.createCriteriaMatrix(selectedCriteriaCompare, selectedCriteria.size());
 
-        return m.isConsistent();
+        return criteriaMatrix.isConsistent();
     }
 
     //Ranking
 
     public void calculateRankingRide() {
 
-        rankingRides = new ArrayList<Ride>();
+        rankingRides = new ArrayList<Ride>(selectedRides);
 
+        double[] criteriaR = criteriaMatrix.getR();
+
+        for (int i = 0; i < selectedRides.size(); i++) {
+            double value = 0;
+
+            for (int k = 0; k < selectedCriteria.size(); i++) {
+                value += criteriaR[k] * ridesMatrix.get(selectedCriteria.get(k).getName()).getR()[i];
+            }
+
+            rankingRides.get(i).setRankingValue(value);
+        }
+
+        //Sortowanie według rankingValue
+        Collections.sort(rankingRides, new Comparator<Ride>() {
+            @Override
+            public int compare(Ride lhs, Ride rhs) {
+                return lhs.getRankingValue() > rhs.getRankingValue() ? 1 :
+                        lhs.getRankingValue() < rhs.getRankingValue() ? - 1 : 0;
+            }
+        });
+
+        setRankingPositions();
+    }
+
+    private void setRankingPositions() {
+
+        for (int i = 0; i < rankingRides.size(); i++) {
+            int position = i + 1;
+
+            if (i > 0 && rankingRides.get(i).getRankingValue() ==
+                    rankingRides.get(i - 1).getRankingValue()) {
+                position = rankingRides.get(i - 1).getRankingPosition();
+            }
+
+            rankingRides.get(i).setRankingPosition(position);
+        }
 
     }
 

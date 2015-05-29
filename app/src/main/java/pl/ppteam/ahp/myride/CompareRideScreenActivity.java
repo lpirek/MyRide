@@ -116,7 +116,10 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
 
     private void confirmComparation() {
 
+        BaseController.getInstance().confirmRidesCompare(currentCriterium);
+
         if (BaseController.getInstance().hasNextCriterium()) {
+
             BaseController.getInstance().nextCriterium();
 
             Intent intent = new Intent(this, CompareRideScreenActivity.class);

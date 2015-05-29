@@ -202,4 +202,9 @@ public class Matrix {
     public boolean isConsistent() {
         return CR <= 0.1;
     }
+
+    public double[] getR() {
+        return r;
+    }
+
 }
