@@ -176,6 +176,10 @@ public class BaseController {
 
     //Ranking
 
+    public void calculateRankingRide() {
+
+    }
+
     public List<Ride> getRankingRide()
     {
         ArrayList<Ride> rankingRide = new ArrayList<Ride>() {{

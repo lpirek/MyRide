@@ -115,6 +115,8 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
             startActivity(intent);
         }
         else {
+            BaseController.getInstance().calculateRankingRide();
+
             Intent intent = new Intent(this, ResultRankingScreenActivity.class);
             startActivity(intent);
         }
