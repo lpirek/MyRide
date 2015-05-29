@@ -6,6 +6,7 @@ import android.widget.BaseAdapter;
 import android.content.Context;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,6 +67,7 @@ public class CriteriaAdapter extends BaseAdapter{
             convertView = View.inflate(context, R.layout.adapter_criteria_item, null);
             holder = new ViewHolder();
 
+            holder.wholeCriterium = (FrameLayout) convertView.findViewById(R.id.item);
             holder.criteriumSelected = (CheckBox) convertView.findViewById(R.id.item_chkbx);
             holder.criteriumName = (TextView) convertView.findViewById(R.id.item_name);
 
@@ -77,18 +79,31 @@ public class CriteriaAdapter extends BaseAdapter{
         final Criterium criterium = items.get(position);
 
         holder.criteriumName.setText(criterium.getName());
-        holder.criteriumSelected.setSelected(criterium.isSelected());
+
+        holder.wholeCriterium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                criterium.setSelected(!criterium.isSelected());
+                CriteriaAdapter.this.notifyDataSetChanged();
+            }
+        });
+
+        holder.criteriumSelected.setChecked(criterium.isSelected());
+
+        /*
         holder.criteriumSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 criterium.setSelected(isChecked);
             }
         });
+        */
 
         return convertView;
     }
 
     class ViewHolder {
+        FrameLayout wholeCriterium;
         CheckBox criteriumSelected;
         TextView criteriumName;
     }
