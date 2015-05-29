@@ -220,7 +220,7 @@ public class BaseController {
         for (int i = 0; i < selectedRides.size(); i++) {
             double value = 0;
 
-            for (int k = 0; k < selectedCriteria.size(); i++) {
+            for (int k = 0; k < selectedCriteria.size(); k++) {
                 value += criteriaR[k] * ridesMatrix.get(selectedCriteria.get(k).getName()).getR()[i];
             }
 
