@@ -86,29 +86,26 @@ public class RankingAdapter extends BaseAdapter {
     private boolean setColor(int position) {
 
         Ride currentRide = items.get(position);
-        int color = 0;
+        boolean isSet = false;
 
         if (position + 1 < getCount()) {
             Ride nextRide = items.get(position + 1);
 
             if (currentRide.getRankingValue() == nextRide.getRankingValue()) {
-                color = Color.rgb(0, 255, 0);
+                holder.disparityView.setBackgroundColor(Color.rgb(0, 255, 0));
+                isSet = true;
             }
             else if (Math.abs(currentRide.getRankingValue() - nextRide.getRankingPosition()) > 0.1) {
-                color = Color.rgb(255, 0, 0);
+                holder.disparityView.setBackgroundColor(Color.rgb(255, 0, 0));
+                isSet = true;
             }
             else {
-                color = Color.rgb(217, 200, 14);
+                holder.disparityView.setBackgroundColor(Color.rgb(217, 200, 14));
+                isSet = true;
             }
         }
 
-        if (color != 0) {
-            holder.disparityView.setBackgroundColor(color);
-            return true;
-        }
-        else {
-            return false;
-        }
+        return isSet;
     }
 
     class ViewHolder {
