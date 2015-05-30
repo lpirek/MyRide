@@ -56,8 +56,6 @@ public class RideCompareAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.adapter_ride_compare_item, null);
             holder = new ViewHolder();
 
-            holder.ride1 = (TextView) convertView.findViewById(R.id.item_ride1);
-            holder.ride2 = (TextView) convertView.findViewById(R.id.item_ride2);
             holder.imgWage = (ImageView) convertView.findViewById(R.id.item_ride_img_wage);
             holder.img_ride1 = (ImageView) convertView.findViewById(R.id.img_ride1);
             holder.img_ride2 = (ImageView) convertView.findViewById(R.id.img_ride2);
@@ -83,9 +81,6 @@ public class RideCompareAdapter extends BaseAdapter {
 
         final RideCompare compare = items.get(position);
 
-        holder.ride1.setText(compare.getRide1().getTransportType().toString());
-        holder.ride2.setText(compare.getRide2().getTransportType().toString());
-
         holder.from_ride1.setText(compare.getRide1().getFromCity().getName());
         holder.to_ride1.setText(compare.getRide1().getToCity().getName());
 
@@ -104,7 +99,8 @@ public class RideCompareAdapter extends BaseAdapter {
         if (compare.getRide1().getEndDate() == null)
         {
             holder.endDate_ride1.setText("");
-            holder.item_line_ride1.setVisibility(View.INVISIBLE);
+            holder.endDate_ride1.setVisibility(View.GONE);
+            holder.item_line_ride1.setVisibility(View.GONE);
         }else {
             holder.endDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getEndDate()));
         }
@@ -112,54 +108,15 @@ public class RideCompareAdapter extends BaseAdapter {
         if(compare.getRide2().getEndDate() == null)
         {
             holder.endDate_ride2.setText("");
-            holder.item_line_ride2.setVisibility(View.INVISIBLE);
+            holder.endDate_ride2.setVisibility(View.GONE);
+            holder.item_line_ride2.setVisibility(View.GONE);
         }
         else {
             holder.endDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getEndDate()));
         }
 
-        switch (compare.getRide1().getTransportType()){
-            case TRAIN:
-                holder.img_ride1.setImageResource(R.drawable.train);
-                break;
-            case OUR_CAR:
-                holder.img_ride1.setImageResource(R.drawable.ourcar);
-                break;
-            case CAR:
-                holder.img_ride1.setImageResource(R.drawable.car);
-                break;
-            case BUS:
-                holder.img_ride1.setImageResource(R.drawable.bus);
-                break;
-            case PLANE:
-                holder.img_ride1.setImageResource(R.drawable.plane);
-                break;
-            default:
-                System.out.println("Error - img. RideCompareAdapter");
-                break;
-        }
-
-        switch (compare.getRide2().getTransportType()){
-            case TRAIN:
-                holder.img_ride2.setImageResource(R.drawable.train);
-                break;
-            case OUR_CAR:
-                holder.img_ride2.setImageResource(R.drawable.ourcar);
-                break;
-            case CAR:
-                holder.img_ride2.setImageResource(R.drawable.car);
-                break;
-            case BUS:
-                holder.img_ride2.setImageResource(R.drawable.bus);
-                break;
-            case PLANE:
-                holder.img_ride2.setImageResource(R.drawable.plane);
-                break;
-            default:
-                System.out.println("Error - img. RideCompareAdapter");
-                break;
-        }
-
+        holder.img_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
+        holder.img_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
 
         int resourceId;
 
@@ -191,8 +148,7 @@ public class RideCompareAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
-        TextView ride1;
-        TextView ride2;
+
         ImageView imgWage;
 
         ImageView img_ride1;

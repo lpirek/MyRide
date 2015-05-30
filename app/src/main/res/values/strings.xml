@@ -19,6 +19,9 @@
     <string name="compare_criteria_screen_btn_confirm">Zatwierdź</string>
     <string name="compare_ride_screen_btn_confirm">Zatwierdź</string>
 
+    <string name="compare_ride_price">Koszt</string>
+    <string name="compare_ride_time">Czas podróży</string>
+
     <string name="dialog_confirm">Zatwierdź</string>
 
     <string name="ride_connective"> &gt;&gt; </string>

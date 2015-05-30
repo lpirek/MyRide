@@ -74,30 +74,41 @@ public class RankingAdapter extends BaseAdapter {
         holder.rideTo.setText(ride.getToCity().getName());
         holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " zł");
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
+        holder.rideIcon.setImageResource(ride.getTransportType().getImage());
 
-        switch (ride.getTransportType()){
-            case TRAIN:
-                holder.rideIcon.setImageResource(R.drawable.train);
-                break;
-            case OUR_CAR:
-                holder.rideIcon.setImageResource(R.drawable.ourcar);
-                break;
-            case CAR:
-                holder.rideIcon.setImageResource(R.drawable.car);
-                break;
-            case BUS:
-                holder.rideIcon.setImageResource(R.drawable.bus);
-                break;
-            case PLANE:
-                holder.rideIcon.setImageResource(R.drawable.plane);
-                break;
-            default:
-                System.out.println("Error - img. RankingAdapter");
-                break;
+        if (setColor(position)) {
+            holder.disparityView.setVisibility(View.GONE);
         }
-        holder.disparityView.setBackgroundColor(Color.rgb(100,200,50));
 
         return convertView;
+    }
+
+    private boolean setColor(int position) {
+
+        Ride currentRide = items.get(position);
+        int color = 0;
+
+        if (position + 1 < getCount()) {
+            Ride nextRide = items.get(position + 1);
+
+            if (currentRide.getRankingValue() == nextRide.getRankingValue()) {
+                color = Color.rgb(0, 255, 0);
+            }
+            else if (Math.abs(currentRide.getRankingValue() - nextRide.getRankingPosition()) > 0.1) {
+                color = Color.rgb(255, 0, 0);
+            }
+            else {
+                color = Color.rgb(217, 200, 14);
+            }
+        }
+
+        if (color != 0) {
+            holder.disparityView.setBackgroundColor(color);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     class ViewHolder {

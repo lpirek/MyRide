@@ -16,16 +16,6 @@
             android:id="@+id/img_dialog_ride1"
             android:layout_margin="5dp"/>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="7dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/dialog_item_ride1" />
     </LinearLayout>
 
     <RelativeLayout
@@ -70,16 +60,6 @@
             android:id="@+id/img_dialog_ride2"
             android:layout_margin="5dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="0dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/dialog_item_ride2"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="5dp" />
     </LinearLayout>
 
     <Button

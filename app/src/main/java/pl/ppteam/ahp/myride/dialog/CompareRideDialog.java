@@ -35,57 +35,15 @@ public class CompareRideDialog extends MainDialog {
 
         holder = new ViewHolder();
 
-        holder.ride1 = (TextView) this.findViewById(R.id.dialog_item_ride1);
-        holder.ride2 = (TextView) this.findViewById(R.id.dialog_item_ride2);
         holder.sbr = (SeekBar) this.findViewById(R.id.dialog_ride_sbr);
         holder.img = (ImageView) this.findViewById(R.id.dialog_ride_item_img);
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_ride_btn_confirm);
         holder.img_dialog_ride1 = (ImageView) this.findViewById(R.id.img_dialog_ride1);
         holder.img_dialog_ride2 = (ImageView) this.findViewById(R.id.img_dialog_ride2);
-        holder.ride1.setText(compare.getRide1().getTransportType().toString());
-        holder.ride2.setText(compare.getRide2().getTransportType().toString());
 
-        switch (compare.getRide1().getTransportType()){
-            case TRAIN:
-                holder.img_dialog_ride1.setImageResource(R.drawable.train);
-                break;
-            case OUR_CAR:
-                holder.img_dialog_ride1.setImageResource(R.drawable.ourcar);
-                break;
-            case CAR:
-                holder.img_dialog_ride1.setImageResource(R.drawable.car);
-                break;
-            case BUS:
-                holder.img_dialog_ride1.setImageResource(R.drawable.bus);
-                break;
-            case PLANE:
-                holder.img_dialog_ride1.setImageResource(R.drawable.plane);
-                break;
-            default:
-                System.out.println("Error - img. ");
-                break;
-        }
 
-        switch (compare.getRide2().getTransportType()){
-            case TRAIN:
-                holder.img_dialog_ride2.setImageResource(R.drawable.train);
-                break;
-            case OUR_CAR:
-                holder.img_dialog_ride2.setImageResource(R.drawable.ourcar);
-                break;
-            case CAR:
-                holder.img_dialog_ride2.setImageResource(R.drawable.car);
-                break;
-            case BUS:
-                holder.img_dialog_ride2.setImageResource(R.drawable.bus);
-                break;
-            case PLANE:
-                holder.img_dialog_ride2.setImageResource(R.drawable.plane);
-                break;
-            default:
-                System.out.println("Error - img. ");
-                break;
-        }
+        holder.img_dialog_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
+        holder.img_dialog_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
 
         setProgress();
         setImage();
@@ -233,8 +191,6 @@ public class CompareRideDialog extends MainDialog {
     }
 
     class ViewHolder {
-        TextView ride1;
-        TextView ride2;
         SeekBar sbr;
         ImageView img;
         Button btn_confirm;

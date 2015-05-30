@@ -4,309 +4,282 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_gravity="fill_horizontal"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout3"
-        android:layout_alignParentTop="false"
-        android:gravity="center">
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:layout_width="fill_parent"
-                android:layout_height="158dp">
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
 
                 <ImageView
                     android:layout_width="37dp"
                     android:layout_height="37dp"
                     android:id="@+id/img_ride1"
-                    android:layout_gravity="left|top"
-                    android:layout_margin="5dp" />
-
-                <TextView
-                    android:layout_width="88dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Test1"
-                    android:id="@+id/item_ride1"
-                    android:layout_marginTop="5dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_gravity="left|top"
-                    android:layout_marginLeft="50dp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="86dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Test2"
-                    android:id="@+id/item_ride2"
+                    android:layout_margin="7dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_gravity="right|top"
-                    android:textColor="@android:color/black" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <ImageView
                     android:layout_width="37dp"
                     android:layout_height="37dp"
                     android:id="@+id/img_ride2"
-                    android:layout_gravity="right|top"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="100dp" />
+                    android:layout_margin="7dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/item_ride_img_wage"
+                    android:scaleType="fitCenter"
+                    android:alpha="0.3"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="65dp"
-                    android:layout_gravity="left|bottom">
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <FrameLayout
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="Do1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_ride1_to"
-                        android:layout_gravity="center_vertical|right|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@android:color/black" />
+                        android:layout_gravity="left|bottom">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Od1"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_ride1_from"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ride_connective"
+                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Do1"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_ride1_to"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@android:color/black" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DataOd1"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_startDate_ride1"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/item_line_ride1"
+                                android:text=" - "
+                                android:textAppearance="?android:attr/textAppearanceSmall"  />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DataDo1"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_endDate_ride1"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="Od1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_ride1_from"
-                        android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@android:color/black" />
+                        android:layout_gravity="right|bottom">
+
+                        <LinearLayout
+                            android:layout_gravity="right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Od2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_ride2_from"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@android:color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ride_connective"
+                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Do2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_ride2_to"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@android:color/black" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_gravity="right"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DataOd2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_startDate_ride2"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/item_line_ride2"
+                                android:text=" - "
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DataDo2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/item_endDate_ride2"
+                                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ride_connective"
-                        android:layout_gravity="center|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DataDo1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_endDate_ride1"
-                        android:layout_gravity="center_vertical|right|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DataOd1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_startDate_ride1"
-                        android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_line_ride1"
-                        android:text=" - "
-                        android:layout_gravity="center|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginLeft="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Koszt:"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_gravity="center_vertical|bottom|left"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="0dp"
-                        android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:layout_width="53dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="pr1"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_price_ride1"
-                        android:layout_gravity="center_horizontal|bottom"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Czas podróży:"
+                        android:gravity="center"
+                        android:text="@string/compare_ride_price"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp"
-                        android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:layout_width="53dp"
-                        android:layout_height="wrap_content"
-                        android:text="tr1"
-                        android:layout_marginLeft="52dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_time_ride1"
-                        android:layout_gravity="center_horizontal|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp" />
-
-                </FrameLayout>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/item_ride_img_wage"
-                    android:scaleType="fitCenter"
-                    android:alpha="0.3"
-                    android:padding="0dp"
-                    android:layout_gravity="center"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="-15dp" />
-
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="65dp"
-                    android:layout_gravity="right|bottom">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Do2"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_ride2_to"
-                        android:layout_gravity="center_vertical|right|top"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Od2"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_ride2_from"
-                        android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ride_connective"
-                        android:layout_gravity="center|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DataDo2"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_endDate_ride2"
-                        android:layout_gravity="center_vertical|right|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DataOd2"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/item_startDate_ride2"
-                        android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_line_ride2"
-                        android:text=" - "
-                        android:layout_gravity="center|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginLeft="10dp" />
-
-                    <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Koszt:"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="center_vertical|bottom|left"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_marginTop="0dp"
-                        android:textColor="@android:color/black" />
-
-                    <TextView
-                        android:layout_width="53dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="pr2"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_price_ride2"
-                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="tr1"
+                        android:id="@+id/item_time_ride1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Czas podróży:"
+                        android:gravity="center"
+                        android:text="@string/compare_ride_time"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_gravity="center_vertical|left|top"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp"
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="53dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="tr2"
-                        android:layout_marginLeft="52dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:text="tr2"
                         android:id="@+id/item_time_ride2"
-                        android:layout_gravity="center_horizontal|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp" />
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                </FrameLayout>
+                </LinearLayout>
 
-            </FrameLayout>
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 
 </RelativeLayout>
