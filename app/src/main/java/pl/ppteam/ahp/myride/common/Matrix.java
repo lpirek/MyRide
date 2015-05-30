@@ -33,7 +33,7 @@ public class Matrix {
             for (int k = 0; k < n; k++) {
 
                 if (k < i) {
-                    Compare compare = compares.get(getIndex(i, k));
+                    CriteriaCompare compare = compares.get(getIndex(i, k));
 
                     matrix[i][k] = compare.getDirection() == Direction.Leftside ?
                                     compare.getWage().getValue() :  (double)1 / compare.getWage().getValue();
@@ -60,7 +60,7 @@ public class Matrix {
             for (int k = 0; k < n; k++) {
 
                 if (k < i) {
-                    Compare compare = compares.get(getIndex(i, k));
+                    RideCompare compare = compares.get(getIndex(i, k));
 
                     matrix[i][k] = compare.getDirection() == Direction.Leftside ?
                             compare.getWage().getValue() : (double)1 / compare.getWage().getValue();

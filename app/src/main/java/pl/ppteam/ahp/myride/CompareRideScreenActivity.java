@@ -41,8 +41,6 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     //Components
     private Button btn_confirm;
     private ListView lv_ride;
-    private View headerView;
-    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +61,10 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     private void loadComponents() {
         btn_confirm = (Button) this.findViewById(R.id.compare_ride_screen_btn_confirm);
         lv_ride = (ListView) this.findViewById(R.id.compare_ride_screen_lv);
-        textView = (TextView) View.inflate(this, R.layout.header, null);
+
+        View includeLayout = this.findViewById(R.id.include);
+        TextView textView = (TextView) includeLayout.findViewById(R.id.header_text);
         textView.setText(currentCriterium.getName());
-        lv_ride.addHeaderView(textView, null, false);
     }
 
     private void loadData() {
@@ -137,7 +136,7 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         //Tutaj otwarcie dialogu
-        RideCompare selectedCompare = (RideCompare) adapter.getItem(position-1);
+        RideCompare selectedCompare = (RideCompare) adapter.getItem(position);
 
         CompareRideDialog dialog = new CompareRideDialog(this, DIALOG_CODE_COMPARE_RIDE, selectedCompare);
         dialog.setListener(this);
