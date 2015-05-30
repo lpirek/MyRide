@@ -75,8 +75,26 @@ public class RankingAdapter extends BaseAdapter {
         holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " zł");
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
 
-        //TODO
-        //holder.rideIcon.setImageResource(....);
+        switch (ride.getTransportType()){
+            case TRAIN:
+                holder.rideIcon.setImageResource(R.drawable.train);
+                break;
+            case OUR_CAR:
+                holder.rideIcon.setImageResource(R.drawable.ourcar);
+                break;
+            case CAR:
+                holder.rideIcon.setImageResource(R.drawable.car);
+                break;
+            case BUS:
+                holder.rideIcon.setImageResource(R.drawable.bus);
+                break;
+            case PLANE:
+                holder.rideIcon.setImageResource(R.drawable.plane);
+                break;
+            default:
+                System.out.println("Error - img. RankingAdapter");
+                break;
+        }
         holder.disparityView.setBackgroundColor(Color.rgb(100,200,50));
 
         return convertView;

@@ -86,9 +86,6 @@ public class RideCompareAdapter extends BaseAdapter {
         holder.ride1.setText(compare.getRide1().getTransportType().toString());
         holder.ride2.setText(compare.getRide2().getTransportType().toString());
 
-        holder.img_ride1.setImageResource(R.drawable.train);
-        holder.img_ride2.setImageResource(R.drawable.train);
-
         holder.from_ride1.setText(compare.getRide1().getFromCity().getName());
         holder.to_ride1.setText(compare.getRide1().getToCity().getName());
 
@@ -121,7 +118,47 @@ public class RideCompareAdapter extends BaseAdapter {
             holder.endDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getEndDate()));
         }
 
+        switch (compare.getRide1().getTransportType()){
+            case TRAIN:
+                holder.img_ride1.setImageResource(R.drawable.train);
+                break;
+            case OUR_CAR:
+                holder.img_ride1.setImageResource(R.drawable.ourcar);
+                break;
+            case CAR:
+                holder.img_ride1.setImageResource(R.drawable.car);
+                break;
+            case BUS:
+                holder.img_ride1.setImageResource(R.drawable.bus);
+                break;
+            case PLANE:
+                holder.img_ride1.setImageResource(R.drawable.plane);
+                break;
+            default:
+                System.out.println("Error - img. RideCompareAdapter");
+                break;
+        }
 
+        switch (compare.getRide2().getTransportType()){
+            case TRAIN:
+                holder.img_ride2.setImageResource(R.drawable.train);
+                break;
+            case OUR_CAR:
+                holder.img_ride2.setImageResource(R.drawable.ourcar);
+                break;
+            case CAR:
+                holder.img_ride2.setImageResource(R.drawable.car);
+                break;
+            case BUS:
+                holder.img_ride2.setImageResource(R.drawable.bus);
+                break;
+            case PLANE:
+                holder.img_ride2.setImageResource(R.drawable.plane);
+                break;
+            default:
+                System.out.println("Error - img. RideCompareAdapter");
+                break;
+        }
 
 
         int resourceId;

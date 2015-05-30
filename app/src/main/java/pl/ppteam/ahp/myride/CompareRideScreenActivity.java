@@ -137,7 +137,7 @@ public class CompareRideScreenActivity extends ActionBarActivity implements View
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         //Tutaj otwarcie dialogu
-        RideCompare selectedCompare = (RideCompare) adapter.getItem(position);
+        RideCompare selectedCompare = (RideCompare) adapter.getItem(position-1);
 
         CompareRideDialog dialog = new CompareRideDialog(this, DIALOG_CODE_COMPARE_RIDE, selectedCompare);
         dialog.setListener(this);

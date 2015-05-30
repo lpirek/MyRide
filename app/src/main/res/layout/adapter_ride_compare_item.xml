@@ -33,7 +33,7 @@
                     android:layout_margin="5dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="88dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Test1"
@@ -43,10 +43,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_gravity="left|top"
-                    android:layout_marginLeft="50dp" />
+                    android:layout_marginLeft="50dp"
+                    android:textColor="@android:color/black" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="86dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Test2"
@@ -55,8 +56,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="45dp"
-                    android:layout_gravity="right|top" />
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="right|top"
+                    android:textColor="@android:color/black" />
 
                 <ImageView
                     android:layout_width="37dp"
@@ -79,7 +81,8 @@
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_ride1_to"
                         android:layout_gravity="center_vertical|right|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColorHighlight="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -89,7 +92,8 @@
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_ride1_from"
                         android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -138,7 +142,8 @@
                         android:layout_marginRight="5dp"
                         android:layout_gravity="center_vertical|bottom|left"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="0dp" />
+                        android:layout_marginTop="0dp"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="53dp"
@@ -158,7 +163,8 @@
                         android:layout_marginRight="5dp"
                         android:layout_gravity="center_vertical|left|top"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp" />
+                        android:layout_marginTop="32dp"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="53dp"
@@ -198,7 +204,8 @@
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_ride2_to"
                         android:layout_gravity="center_vertical|right|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -208,7 +215,8 @@
                         android:layout_marginRight="5dp"
                         android:id="@+id/item_ride2_from"
                         android:layout_gravity="center_vertical|left|top"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -257,7 +265,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical|bottom|left"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="53dp"
@@ -277,7 +286,8 @@
                         android:layout_marginRight="5dp"
                         android:layout_gravity="center_vertical|left|top"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:layout_marginTop="32dp" />
+                        android:layout_marginTop="32dp"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="53dp"

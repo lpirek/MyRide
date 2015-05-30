@@ -55,17 +55,17 @@ public class BaseManager {
                 new Date(), null, 180));
         add(new Ride(2, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
                 new Date(), null, 180));
-        add(new Ride(3, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 29.0, true,
+        add(new Ride(3, MeansOfTransport.PLANE, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 29.0, true,
                 new Date(), null, 180));
-        add(new Ride(4, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
+        add(new Ride(4, MeansOfTransport.OUR_CAR, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
                 new Date(), null, 180));
-        add(new Ride(5, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 50.0, true,
+        add(new Ride(5, MeansOfTransport.CAR, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 50.0, true,
                 new Date(), null, 180));
-        add(new Ride(6, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
+        add(new Ride(6, MeansOfTransport.PLANE, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 27.0, true,
                 new Date(), null, 180));
-        add(new Ride(7, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
+        add(new Ride(7, MeansOfTransport.BUS, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 35.0, true,
                 new Date(), null, 180));
-        add(new Ride(8, MeansOfTransport.TRAIN, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 37.0, true,
+        add(new Ride(8, MeansOfTransport.CAR, new City(1, "Wrocław", 51, 17), new City(2, "Kraków", 50, 19), 37.0, true,
                 new Date(), null, 180));
     }};
 
