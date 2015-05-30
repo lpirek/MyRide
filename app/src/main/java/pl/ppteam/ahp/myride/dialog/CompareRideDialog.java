@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+
 import pl.ppteam.ahp.myride.R;
 import pl.ppteam.ahp.myride.common.RideCompare;
 import pl.ppteam.ahp.myride.common.Direction;
@@ -40,10 +42,48 @@ public class CompareRideDialog extends MainDialog {
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_ride_btn_confirm);
         holder.img_dialog_ride1 = (ImageView) this.findViewById(R.id.img_dialog_ride1);
         holder.img_dialog_ride2 = (ImageView) this.findViewById(R.id.img_dialog_ride2);
+        holder.from_ride1 = (TextView) this.findViewById(R.id.item_dialog_ride1_from);
+        holder.to_ride1 = (TextView) this.findViewById(R.id.item_dialog_ride1_to);
+        holder.from_ride2 = (TextView) this.findViewById(R.id.item_dialog_ride2_from);
+        holder.to_ride2 = (TextView) this.findViewById(R.id.item_dialog_ride2_to);
+        holder.startDate_ride1 = (TextView) this.findViewById(R.id.item_dialog_startDate_ride1);
+        holder.startDate_ride2 = (TextView) this.findViewById(R.id.item_dialog_startDate_ride2);
+        holder.endDate_ride1 = (TextView) this.findViewById(R.id.item_dialog_endDate_ride1);
+        holder.endDate_ride2 = (TextView) this.findViewById(R.id.item_dialog_endDate_ride2);
+        holder.item_line_ride1 = (TextView) this.findViewById(R.id.item_dialog_line_ride1);
+        holder.item_line_ride2 = (TextView) this.findViewById(R.id.item_dialog_line_ride2);
 
 
         holder.img_dialog_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
         holder.img_dialog_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
+
+        holder.from_ride1.setText(compare.getRide1().getFromCity().getName());
+        holder.to_ride1.setText(compare.getRide1().getToCity().getName());
+
+        holder.from_ride2.setText(compare.getRide2().getFromCity().getName());
+        holder.to_ride2.setText(compare.getRide2().getToCity().getName());
+
+        holder.startDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getStartDate()));
+        holder.startDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getStartDate()));
+
+        if (compare.getRide1().getEndDate() == null)
+        {
+            holder.endDate_ride1.setText("");
+            holder.endDate_ride1.setVisibility(View.GONE);
+            holder.item_line_ride1.setVisibility(View.GONE);
+        }else {
+            holder.endDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getEndDate()));
+        }
+
+        if(compare.getRide2().getEndDate() == null)
+        {
+            holder.endDate_ride2.setText("");
+            holder.endDate_ride2.setVisibility(View.GONE);
+            holder.item_line_ride2.setVisibility(View.GONE);
+        }
+        else {
+            holder.endDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getEndDate()));
+        }
 
         setProgress();
         setImage();
@@ -194,8 +234,24 @@ public class CompareRideDialog extends MainDialog {
         SeekBar sbr;
         ImageView img;
         Button btn_confirm;
+
         ImageView img_dialog_ride1;
         ImageView img_dialog_ride2;
+
+        TextView from_ride1;
+        TextView to_ride1;
+
+        TextView from_ride2;
+        TextView to_ride2;
+
+        TextView startDate_ride1;
+        TextView startDate_ride2;
+
+        TextView endDate_ride1;
+        TextView endDate_ride2;
+
+        TextView item_line_ride1;
+        TextView item_line_ride2;
     }
 
 }
