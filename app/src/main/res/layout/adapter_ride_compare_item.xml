@@ -82,7 +82,7 @@
                         android:id="@+id/item_ride1_to"
                         android:layout_gravity="center_vertical|right|top"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColorHighlight="@android:color/black" />
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
