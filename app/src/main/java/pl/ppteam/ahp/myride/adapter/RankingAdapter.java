@@ -76,9 +76,7 @@ public class RankingAdapter extends BaseAdapter {
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
         holder.rideIcon.setImageResource(ride.getTransportType().getImage());
 
-        if (setColor(position)) {
-            holder.disparityView.setVisibility(View.GONE);
-        }
+        setColor(position);
 
         return convertView;
     }
