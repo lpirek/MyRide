@@ -24,7 +24,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -57,7 +57,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -131,13 +131,12 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="243dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.90">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:gravity="right">
@@ -145,10 +144,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Do2"
+                    android:text="Od2"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:id="@+id/item_dialog_ride2_to"
+                    android:id="@+id/item_dialog_ride2_from"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@android:color/black" />
 
@@ -161,17 +160,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Od2"
+                    android:text="Do2"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:id="@+id/item_dialog_ride2_from"
+                    android:id="@+id/item_dialog_ride2_to"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@android:color/black" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:gravity="right">
