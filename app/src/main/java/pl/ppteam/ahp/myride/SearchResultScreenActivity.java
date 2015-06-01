@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     //Components
     private Button btn_confirm;
     private ListView lv_result;
+    private ImageView img_empty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +57,22 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     private void loadComponents() {
         btn_confirm = (Button) this.findViewById(R.id.search_result_screen_btn_confirm);
         lv_result = (ListView) this.findViewById(R.id.search_result_screen_lv);
+        img_empty = (ImageView) this.findViewById(R.id.search_result_screen_img);
     }
 
     private void loadData() {
         rideList = manager.getRideList(query);
 
-        adapter = new RideAdapter(this, rideList);
-        lv_result.setAdapter(adapter);
+        if (rideList.size() > 0) {
+            adapter = new RideAdapter(this, rideList);
+            lv_result.setAdapter(adapter);
+        }
+        else {
+            btn_confirm.setVisibility(View.INVISIBLE);
+            lv_result.setVisibility(View.INVISIBLE);
+            img_empty.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private void setListeners() {

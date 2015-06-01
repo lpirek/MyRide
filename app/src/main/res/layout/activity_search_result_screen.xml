@@ -29,4 +29,13 @@
         android:layout_alignRight="@+id/search_result_screen_lv"
         android:layout_alignEnd="@+id/search_result_screen_lv" />
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/search_result_screen_img"
+        android:src="@drawable/empty"
+        android:scaleType="center"
+        android:visibility="gone"
+        android:layout_alignParentTop="true" />
+
 </RelativeLayout>
