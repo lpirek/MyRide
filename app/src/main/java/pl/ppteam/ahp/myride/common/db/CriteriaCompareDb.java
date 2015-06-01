@@ -32,6 +32,12 @@ public class CriteriaCompareDb extends Model {
         super();
     }
 
+    public CriteriaCompareDb(Criterium criterium1, Criterium criterium2) {
+        super();
+        this.criterium1 = criterium1.getId();
+        this.criterium2 = criterium2.getId();
+    }
+
     public CriteriaCompareDb(int criterium1, int criterium2, Wage wage, Direction direction) {
         super();
         this.criterium1 = criterium1;

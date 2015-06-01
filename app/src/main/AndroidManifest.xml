@@ -3,6 +3,7 @@
     package="pl.ppteam.ahp.myride" >
 
     <application
+        android:name=".MyRideApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,6 +36,14 @@
             android:name=".ResultRankingScreenActivity"
             android:label="@string/title_activity_result_ranking_screen" >
         </activity>
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="MyRide.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+
     </application>
 
 </manifest>
