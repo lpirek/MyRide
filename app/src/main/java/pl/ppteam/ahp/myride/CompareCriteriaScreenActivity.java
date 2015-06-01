@@ -1,5 +1,7 @@
 package pl.ppteam.ahp.myride;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -109,12 +111,29 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity implements 
 
     private void confirmComparation() {
 
-        BaseController.getInstance().confirmCriteriaCompare();
+        boolean result = BaseController.getInstance().confirmCriteriaCompare();
         manager.saveData(criteriaCompareList);
 
+        if (!result) {
+            new AlertDialog.Builder(this)
+                    .setMessage("Zaproponowane dane nie są poprawne. \nCzy chcesz przejść dalej?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            navigateToNext();
+                        }})
+
+                    .setNegativeButton(android.R.string.no, null).show();
+        }
+        else {
+            navigateToNext();
+        }
+
+    }
+
+    private void navigateToNext() {
         Intent intent = new Intent(this, CompareRideScreenActivity.class);
         startActivity(intent);
-
     }
 
     @Override
