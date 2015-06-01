@@ -128,7 +128,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
         }
         else
         {
-            Toast.makeText(this, "Wybrałeś zbyt mało pozycji.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Wybrałeś zbyt mało pozycji. Minimum 3", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
@@ -20,19 +24,24 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import pl.ppteam.ahp.myride.adapter.CriteriaCompareAdapter;
+import pl.ppteam.ahp.myride.adapter.LastSearchAdapter;
 import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.common.CriteriaCompare;
+import pl.ppteam.ahp.myride.common.db.RideQueryDb;
 import pl.ppteam.ahp.myride.controller.BaseController;
+import pl.ppteam.ahp.myride.dialog.CompareCriteriaDialog;
 import pl.ppteam.ahp.myride.manager.MainScreenManager;
 import pl.ppteam.ahp.myride.query.CityQuery;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class MainScreenActivity extends ActionBarActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class MainScreenActivity extends ActionBarActivity implements View.OnClickListener, View.OnFocusChangeListener, AdapterView.OnItemClickListener {
 
     MainScreenManager manager;
 
-    private List<City> cityList;
+    private List<RideQuery> rideQueries;
     private List<String> cityNames;
 
     private Calendar myCalendar = Calendar.getInstance();
@@ -40,11 +49,15 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
     private CityQuery fromCityQuery;
     private CityQuery toCityQuery;
 
+    private LastSearchAdapter adapter;
+
     //Components
     private Button btn_search;
     private AutoCompleteTextView edt_from;
     private AutoCompleteTextView edt_to;
     private EditText edt_date;
+    private RelativeLayout layout_last_search;
+    private ListView lv_last_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +65,6 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         setContentView(R.layout.activity_main_screen);
 
         manager = new MainScreenManager();
-
-        DateTime today = new DateTime();
-        today = today.withHourOfDay(0).withMinuteOfHour(0).withSecondOfMinute(0).withMillisOfSecond(1);
 
         loadComponents();
         loadData();
@@ -67,11 +77,14 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         edt_from = (AutoCompleteTextView) this.findViewById(R.id.main_screen_edt_from);
         edt_to = (AutoCompleteTextView) this.findViewById(R.id.main_screen_edt_to);
         edt_date = (EditText) this.findViewById(R.id.main_screen_edt_date);
+        layout_last_search = (RelativeLayout) this.findViewById(R.id.main_screen_layout_last_search);
+        lv_last_search = (ListView) this.findViewById(R.id.main_screen_lv_last_search);
     }
 
     private void loadData() {
         //cityList = manager.getCityList();
         cityNames = manager.getCityNames();
+        rideQueries = manager.getLastRideQueries();
 
         fromCityQuery = new CityQuery();
         toCityQuery  = new CityQuery();
@@ -83,16 +96,26 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         edt_to.setAdapter(adapterTo);
 
         updateDate();
+
+        if (rideQueries.size() > 0) {
+            adapter = new LastSearchAdapter(this, rideQueries);
+            lv_last_search.setAdapter(adapter);
+        }
+        else {
+            layout_last_search.setVisibility(View.INVISIBLE);
+            lv_last_search.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void updateDate() {
-        edt_date.setText(new SimpleDateFormat("yyyy-MM-dd").format(myCalendar.getTime()));
+        edt_date.setText(new SimpleDateFormat("dd-MM-yyyy").format(myCalendar.getTime()));
     }
 
     private void setListeners() {
         edt_date.setOnClickListener(this);
         edt_date.setOnFocusChangeListener(this);
         btn_search.setOnClickListener(this);
+        lv_last_search.setOnItemClickListener(this);
     }
 
     @Override
@@ -143,6 +166,21 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         }
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        RideQuery selectedRideQuery = (RideQuery) adapter.getItem(position);
+        selectRideQuery(selectedRideQuery);
+    }
+
+    private void selectRideQuery(RideQuery rideQuery) {
+
+        BaseController.getInstance().setRideQuery(rideQuery);
+
+        Intent intent = new Intent(this, SearchResultScreenActivity.class);
+        startActivity(intent);
+    }
+
     private void searchRide() {
 
         fromCityQuery.setName(edt_from.getText().toString());
@@ -162,6 +200,10 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
             query.setStartDate(dateTime.toDate());
 
             BaseController.getInstance().setRideQuery(query);
+
+            RideQueryDb queryDb = new RideQueryDb(fromCity, toCity);
+            queryDb.setStartDate(dateTime.toDate());
+            queryDb.save();
 
             Intent intent = new Intent(this, SearchResultScreenActivity.class);
             startActivity(intent);
@@ -190,6 +232,7 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         }
 
     };
+
 
 
 }

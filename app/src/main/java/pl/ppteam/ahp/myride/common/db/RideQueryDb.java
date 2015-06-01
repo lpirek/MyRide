@@ -8,6 +8,8 @@ import com.activeandroid.query.Select;
 import java.util.Date;
 import java.util.List;
 
+import pl.ppteam.ahp.myride.common.City;
+
 /**
  * Created by Łukasz on 2015-05-29.
  */
@@ -38,6 +40,13 @@ public class RideQueryDb extends Model {
 
     public RideQueryDb() {
         super();
+    }
+
+    public RideQueryDb(City cityFrom, City cityTo) {
+        super();
+        this.cityFrom = cityFrom.getId();
+        this.cityTo = cityTo.getId();
+        this.date = new Date();
     }
 
     public RideQueryDb(int cityFrom, int cityTo) {

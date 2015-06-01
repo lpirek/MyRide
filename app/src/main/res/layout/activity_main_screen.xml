@@ -56,6 +56,38 @@
             android:text="@string/main_screen_btn_search"
             android:id="@+id/main_screen_btn_search" />
 
+        <RelativeLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_screen_layout_last_search">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/main_screen_txv_last_search"
+                />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/history"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_screen_lv_last_search">
+
+        </ListView>
+
     </LinearLayout>
 
 </RelativeLayout>

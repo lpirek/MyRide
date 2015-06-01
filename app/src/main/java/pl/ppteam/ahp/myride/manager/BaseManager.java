@@ -105,6 +105,10 @@ public class BaseManager {
 
             boolean pass = true;
 
+            if (query.getId() != 0) {
+                pass = pass && query.getId() == city.getId();
+            }
+
             if (query.getName() != null) {
                 pass = pass && query.getName().toLowerCase().equals(city.getName().toLowerCase());
             }
