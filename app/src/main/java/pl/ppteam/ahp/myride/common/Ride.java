@@ -1,6 +1,9 @@
 package pl.ppteam.ahp.myride.common;
 
+import org.joda.time.DateTime;
+
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -109,6 +112,11 @@ public class Ride extends Item{
         return startDate;
     }
 
+    public String getFormatStartDate() {
+        return MessageFormat.format("{0} g.{1}",
+                new SimpleDateFormat("dd-MM-yyyy").format(startDate), new SimpleDateFormat("HH:mm").format(startDate));
+    }
+
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
@@ -117,8 +125,26 @@ public class Ride extends Item{
         return endDate;
     }
 
+    public String getFormatEndDate() {
+        return isOneDay() ? new SimpleDateFormat("HH:mm").format(endDate) :
+            MessageFormat.format("{0} g.{1}",
+                new SimpleDateFormat("dd-MM-yyyy").format(endDate), new SimpleDateFormat("HH:mm").format(endDate));
+    }
+
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    private boolean isOneDay() {
+        if (endDate == null)
+            return false;
+
+        DateTime startTime = new DateTime(startDate);
+        DateTime endTime = new DateTime(endDate);
+
+        return startTime.getYear() == endTime.getYear()
+                && startTime.getMonthOfYear() == endTime.getMonthOfYear()
+                && startTime.getDayOfMonth() == endTime.getDayOfMonth();
     }
 
     public int getRideTime() {

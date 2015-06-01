@@ -73,7 +73,7 @@ public class RankingAdapter extends BaseAdapter {
         holder.rideFrom.setText(ride.getFromCity().getName());
         holder.rideTo.setText(ride.getToCity().getName());
         holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " zł");
-        holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
+        holder.rideStart.setText(ride.getFormatStartDate());
         holder.rideIcon.setImageResource(ride.getTransportType().getImage());
 
         setColor(position);

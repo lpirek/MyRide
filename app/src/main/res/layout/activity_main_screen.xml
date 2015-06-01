@@ -59,7 +59,7 @@
         <RelativeLayout
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:id="@+id/main_screen_layout_last_search">
 
             <TextView

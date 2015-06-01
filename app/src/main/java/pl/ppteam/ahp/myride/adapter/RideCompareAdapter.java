@@ -93,27 +93,30 @@ public class RideCompareAdapter extends BaseAdapter {
         holder.time_ride1.setText(compare.getRide1().getFormatRideTime());
         holder.time_ride2.setText(compare.getRide2().getFormatRideTime());
 
-        holder.startDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getStartDate()));
-        holder.startDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getStartDate()));
+        holder.startDate_ride1.setText(compare.getRide1().getFormatStartDate());
+        holder.startDate_ride2.setText(compare.getRide2().getFormatStartDate());
 
-        if (compare.getRide1().getEndDate() == null)
-        {
+        //if (compare.getRide1().getEndDate() == null)
+        //{
             holder.endDate_ride1.setText("");
             holder.endDate_ride1.setVisibility(View.GONE);
+            holder.item_line_ride1.setText("");
             holder.item_line_ride1.setVisibility(View.GONE);
-        }else {
-            holder.endDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getEndDate()));
-        }
+        //}
+        //else {
+        //    holder.endDate_ride1.setText(compare.getRide1().getFormatEndDate());
+        //}
 
-        if(compare.getRide2().getEndDate() == null)
-        {
+        //if(compare.getRide2().getEndDate() == null)
+        //{
             holder.endDate_ride2.setText("");
             holder.endDate_ride2.setVisibility(View.GONE);
+            holder.item_line_ride2.setText("");
             holder.item_line_ride2.setVisibility(View.GONE);
-        }
-        else {
-            holder.endDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getEndDate()));
-        }
+        //}
+        //else {
+        //    holder.endDate_ride2.setText(compare.getRide2().getFormatEndDate());
+        //}
 
         holder.img_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
         holder.img_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
