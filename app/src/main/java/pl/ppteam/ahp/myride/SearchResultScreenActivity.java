@@ -118,7 +118,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     private void chooseRide() {
         List<Ride> result = adapter.getSelectedRides();
 
-        if (result.size() >= 2) {
+        if (result.size() >= 3) {
             BaseController.getInstance().setSelectedRides(result);
 
             //Przejście dalej

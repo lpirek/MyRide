@@ -1,5 +1,6 @@
 package pl.ppteam.ahp.myride.adapter;
 
+import android.media.Image;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -73,6 +74,7 @@ public class RideAdapter extends BaseAdapter{
             holder.rideFrom = (TextView) convertView.findViewById(R.id.item_from);
             holder.rideTo = (TextView) convertView.findViewById(R.id.item_to);
             holder.ridePrice = (TextView) convertView.findViewById(R.id.item_price);
+            holder.rideIcon = (ImageView) convertView.findViewById(R.id.item_img);
 
             convertView.setTag(holder);
         } else {
@@ -85,6 +87,7 @@ public class RideAdapter extends BaseAdapter{
         holder.rideTo.setText(ride.getToCity().getName());
         holder.ridePrice.setText(new DecimalFormat("0.00").format(ride.getPrice()) + " zł");
         holder.rideStart.setText(new SimpleDateFormat("yyyy-MM-dd").format(ride.getStartDate()));
+        holder.rideIcon.setImageResource(ride.getTransportType().getImage());
 
         holder.wholeRide.setOnClickListener(new View.OnClickListener() {
             @Override
