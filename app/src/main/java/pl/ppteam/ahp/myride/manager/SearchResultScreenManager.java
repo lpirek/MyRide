@@ -6,7 +6,7 @@ import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.RideQuery;
 
 /**
- * Created by £ukasz on 2015-05-23.
+ * Created by ≈Åukasz on 2015-05-23.
  */
 public class SearchResultScreenManager {
 

@@ -133,6 +133,10 @@ public class BaseManager {
                 pass = pass && query.getToCity().getId() == ride.getToCity().getId();
             }
 
+            if (query.getStartDate() != null) {
+                pass = pass && (ride.getStartDate().equals(query.getStartDate()) || ride.getStartDate().after(query.getStartDate()));
+            }
+
             if (pass) {
                 result.add(ride);
             }

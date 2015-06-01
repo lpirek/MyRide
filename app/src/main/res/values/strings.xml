@@ -13,6 +13,7 @@
     <string name="main_screen_btn_search">Wyszukaj</string>
     <string name="main_screen_txv_from">Miejscowość początkowa</string>
     <string name="main_screen_txv_to">Miejscowość docelowa</string>
+    <string name="main_screen_txv_date">Data wyjazdu</string>
 
     <string name="search_result_screen_btn_confirm">Porównaj</string>
     <string name="choose_criteria_screen_btn_confirm">Wybierz</string>

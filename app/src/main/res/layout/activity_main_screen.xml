@@ -37,6 +37,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_screen_edt_to" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/main_screen_txv_date" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:editable="false"
+            android:id="@+id/main_screen_edt_date" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
