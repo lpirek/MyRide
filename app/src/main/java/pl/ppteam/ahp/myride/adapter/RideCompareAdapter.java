@@ -90,8 +90,8 @@ public class RideCompareAdapter extends BaseAdapter {
         holder.price_ride1.setText(new DecimalFormat("0.00").format(compare.getRide1().getPrice()) + " zł");
         holder.price_ride2.setText(new DecimalFormat("0.00").format(compare.getRide2().getPrice()) + " zł");
 
-        holder.time_ride1.setText(Integer.toString(compare.getRide1().getRideTime()));
-        holder.time_ride2.setText(Integer.toString(compare.getRide2().getRideTime()));
+        holder.time_ride1.setText(compare.getRide1().getFormatRideTime());
+        holder.time_ride2.setText(compare.getRide2().getFormatRideTime());
 
         holder.startDate_ride1.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide1().getStartDate()));
         holder.startDate_ride2.setText(new SimpleDateFormat("yyyy-MM-dd").format(compare.getRide2().getStartDate()));

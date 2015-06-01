@@ -1,5 +1,6 @@
 package pl.ppteam.ahp.myride.common;
 
+import java.text.MessageFormat;
 import java.util.Date;
 
 /**
@@ -122,6 +123,13 @@ public class Ride extends Item{
 
     public int getRideTime() {
         return rideTime;
+    }
+
+    public String getFormatRideTime() {
+        int hours = rideTime / 60;
+        int minuts = rideTime - (hours * 60);
+
+        return MessageFormat.format("{0}h {1}", hours, minuts != 0 ? minuts : "");
     }
 
     public void setRideTime(int rideTime) {
