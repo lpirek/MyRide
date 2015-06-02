@@ -23,6 +23,7 @@
 
     <string name="compare_ride_price">Koszt</string>
     <string name="compare_ride_time">Czas podróży</string>
+    <string name="compare_ride_to">Przyjazd</string>
 
     <string name="dialog_confirm">Zatwierdź</string>
 

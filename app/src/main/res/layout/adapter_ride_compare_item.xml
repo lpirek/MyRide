@@ -105,22 +105,6 @@
                                 android:id="@+id/item_startDate_ride1"
                                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/item_line_ride1"
-                                android:text=" - "
-                                android:textAppearance="?android:attr/textAppearanceSmall"  />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="DataDo1"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
-                                android:id="@+id/item_endDate_ride1"
-                                android:textAppearance="?android:attr/textAppearanceSmall" />
-
                         </LinearLayout>
 
                     </FrameLayout>
@@ -178,22 +162,6 @@
                                 android:id="@+id/item_startDate_ride2"
                                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/item_line_ride2"
-                                android:text=" - "
-                                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="DataDo2"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
-                                android:id="@+id/item_endDate_ride2"
-                                android:textAppearance="?android:attr/textAppearanceSmall"/>
-
                         </LinearLayout>
 
                     </FrameLayout>
@@ -240,7 +208,6 @@
 
                 <LinearLayout
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="7dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -272,6 +239,45 @@
                         android:layout_marginRight="5dp"
                         android:text="tr2"
                         android:id="@+id/item_time_ride2"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="tr1"
+                        android:id="@+id/item_endDate_ride1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/compare_ride_to"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="tr2"
+                        android:id="@+id/item_endDate_ride2"
                         android:gravity="right"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 

@@ -71,8 +71,6 @@ public class RideCompareAdapter extends BaseAdapter {
             holder.startDate_ride2 = (TextView) convertView.findViewById(R.id.item_startDate_ride2);
             holder.endDate_ride1 = (TextView) convertView.findViewById(R.id.item_endDate_ride1);
             holder.endDate_ride2 = (TextView) convertView.findViewById(R.id.item_endDate_ride2);
-            holder.item_line_ride1 = (TextView) convertView.findViewById(R.id.item_line_ride1);
-            holder.item_line_ride2 = (TextView) convertView.findViewById(R.id.item_line_ride2);
 
             convertView.setTag(holder);
         } else {
@@ -96,27 +94,20 @@ public class RideCompareAdapter extends BaseAdapter {
         holder.startDate_ride1.setText(compare.getRide1().getFormatStartDate());
         holder.startDate_ride2.setText(compare.getRide2().getFormatStartDate());
 
-        //if (compare.getRide1().getEndDate() == null)
-        //{
-            holder.endDate_ride1.setText("");
-            holder.endDate_ride1.setVisibility(View.GONE);
-            holder.item_line_ride1.setText("");
-            holder.item_line_ride1.setVisibility(View.GONE);
-        //}
-        //else {
-        //    holder.endDate_ride1.setText(compare.getRide1().getFormatEndDate());
-        //}
+        if (compare.getRide1().getEndDate() == null)
+        {
+            holder.endDate_ride1.setText("-");
+        }
+        else {
+            holder.endDate_ride1.setText(compare.getRide1().getFormatEndDate());
+        }
 
-        //if(compare.getRide2().getEndDate() == null)
-        //{
-            holder.endDate_ride2.setText("");
-            holder.endDate_ride2.setVisibility(View.GONE);
-            holder.item_line_ride2.setText("");
-            holder.item_line_ride2.setVisibility(View.GONE);
-        //}
-        //else {
-        //    holder.endDate_ride2.setText(compare.getRide2().getFormatEndDate());
-        //}
+        if(compare.getRide2().getEndDate() == null) {
+            holder.endDate_ride2.setText("-");
+        }
+        else {
+            holder.endDate_ride2.setText(compare.getRide2().getFormatEndDate());
+        }
 
         holder.img_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
         holder.img_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
@@ -174,8 +165,5 @@ public class RideCompareAdapter extends BaseAdapter {
 
         TextView endDate_ride1;
         TextView endDate_ride2;
-
-        TextView item_line_ride1;
-        TextView item_line_ride2;
     }
 }

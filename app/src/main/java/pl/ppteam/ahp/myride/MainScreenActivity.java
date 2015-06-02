@@ -205,6 +205,10 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
             queryDb.setStartDate(dateTime.toDate());
             queryDb.save();
 
+            rideQueries = manager.getLastRideQueries();
+            adapter = new LastSearchAdapter(this, rideQueries);
+            lv_last_search.setAdapter(adapter);
+
             Intent intent = new Intent(this, SearchResultScreenActivity.class);
             startActivity(intent);
         }
