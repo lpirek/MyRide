@@ -231,8 +231,8 @@ public class BaseController {
         Collections.sort(rankingRides, new Comparator<Ride>() {
             @Override
             public int compare(Ride lhs, Ride rhs) {
-                return lhs.getRankingValue() > rhs.getRankingValue() ? 1 :
-                        lhs.getRankingValue() < rhs.getRankingValue() ? - 1 : 0;
+                return lhs.getRankingValue() > rhs.getRankingValue() ? -1 :
+                        lhs.getRankingValue() < rhs.getRankingValue() ? 1 : 0;
             }
         });
 

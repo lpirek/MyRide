@@ -15,6 +15,7 @@ import java.util.List;
 import pl.ppteam.ahp.myride.adapter.CriteriaAdapter;
 import pl.ppteam.ahp.myride.adapter.RankingAdapter;
 import pl.ppteam.ahp.myride.common.Ride;
+import pl.ppteam.ahp.myride.controller.BaseController;
 import pl.ppteam.ahp.myride.manager.ChooseCriteriaScreenManager;
 import pl.ppteam.ahp.myride.manager.ResultRankingScreenManager;
 import pl.ppteam.ahp.myride.query.CriteriumQuery;
@@ -50,7 +51,7 @@ public class ResultRankingScreenActivity extends ActionBarActivity {
     }
 
     private void loadData() {
-        rideList = manager.getRankingList();
+        rideList = BaseController.getInstance().getRankingRide();
 
         adapter = new RankingAdapter(this, rideList);
         lv_ranking.setAdapter(adapter);

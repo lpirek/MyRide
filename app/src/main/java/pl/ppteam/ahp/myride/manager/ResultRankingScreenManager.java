@@ -9,13 +9,6 @@ import pl.ppteam.ahp.myride.controller.BaseController;
  */
 public class ResultRankingScreenManager {
 
-    public List<Ride> getRankingList() {
-        List<Ride> result = null;
 
-        BaseController manager = BaseController.getInstance();
-        result = manager.getRankingRide();
-
-        return result;
-    }
 
 }
