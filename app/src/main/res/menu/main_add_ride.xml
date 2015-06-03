@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.prgguru.example.MainActivity" >
+    <item android:id="@+id/action_add_ride"
+        android:title="@string/add_ride"
+        android:icon="@drawable/ic_action_add"
+        android:showAsAction="always" />
+</menu>
