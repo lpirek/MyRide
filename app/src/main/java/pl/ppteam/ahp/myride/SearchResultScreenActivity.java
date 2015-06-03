@@ -1,5 +1,6 @@
 package pl.ppteam.ahp.myride;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,31 +9,45 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.MenuInflater;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import pl.ppteam.ahp.myride.adapter.RideAdapter;
+import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.controller.BaseController;
+import pl.ppteam.ahp.myride.dialog.AddRideDialog;
+import pl.ppteam.ahp.myride.dialog.IDialogListener;
 import pl.ppteam.ahp.myride.manager.SearchResultScreenManager;
 import pl.ppteam.ahp.myride.query.CriteriumQuery;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener{
+public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener, IDialogListener, OnItemSelectedListener{
+
+    private static final int DIALOG_CODE_ADD_RIDE = 0;
 
     private SearchResultScreenManager manager;
-
     private List<Ride> rideList;
 
     private RideAdapter adapter;
     private RideQuery query;
+
+    private AddRideDialog dialog;
 
     //Components
     private Button btn_confirm;
@@ -91,6 +106,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_ride:
+
                 addRide();
                 return true;
             default:
@@ -112,6 +128,15 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     private void addRide()
     {
+
+
+
+        dialog = new AddRideDialog(this, DIALOG_CODE_ADD_RIDE, query);
+        dialog.setListener(this);
+        dialog.show();
+
+        dialog.holder.spn_typ.setAdapter(new ArrayAdapter<MeansOfTransport>(this, android.R.layout.simple_list_item_1, MeansOfTransport.values()));
+        dialog.holder.spn_typ.setOnItemSelectedListener(this);
 
 
     }
@@ -139,5 +164,27 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
 
     }
+
+    @Override
+    public void onPositiveClicked(int code) {
+        switch (code) {
+            case DIALOG_CODE_ADD_RIDE:
+                adapter.notifyDataSetChanged();
+                break;
+            default:
+                Logger.info("Unkown action source!");
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        dialog.holder.spn_typ.setSelection(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
 
 }
