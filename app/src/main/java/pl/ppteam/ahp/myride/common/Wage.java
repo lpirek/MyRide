@@ -8,7 +8,7 @@ public enum Wage {
     W9  (9, "jest ekstremalnie preferowane"),
     W7  (7, "jest bardzo silnie preferowane"),
     W5  (5, "jest silnie preferowane"),
-    W3  (3, "jest słaboo preferowane"),
+    W3  (3, "jest słabo preferowane"),
     W1  (1, "jest równoważne");
 
 

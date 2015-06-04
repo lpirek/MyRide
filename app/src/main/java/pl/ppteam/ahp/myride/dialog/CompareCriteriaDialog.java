@@ -38,6 +38,7 @@ public class CompareCriteriaDialog extends MainDialog {
 
         holder.criterium1 = (TextView) this.findViewById(R.id.dialog_item_criterium1);
         holder.criterium2 = (TextView) this.findViewById(R.id.dialog_item_criterium2);
+        holder.text = (TextView) this.findViewById(R.id.dialog_item_text);
         holder.sbr = (SeekBar) this.findViewById(R.id.dialog_sbr);
         holder.img = (ImageView) this.findViewById(R.id.dialog_item_img);
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_btn_confirm);
@@ -46,12 +47,14 @@ public class CompareCriteriaDialog extends MainDialog {
         holder.criterium2.setText(compare.getCriterium2().getName());
         setProgress();
         setImage();
+        setText();
 
         holder.sbr.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 setImage();
+                setText();
             }
 
             @Override
@@ -116,6 +119,42 @@ public class CompareCriteriaDialog extends MainDialog {
         }
 
         holder.img.setImageResource(resourceId);
+    }
+
+    private void setText() {
+        int value = holder.sbr.getProgress();
+        String text = "";
+
+        switch(value) {
+            case 0:
+                text = Wage.W9.getDescription();
+                break;
+            case 1:
+                text = Wage.W7.getDescription();
+                break;
+            case 2:
+                text = Wage.W5.getDescription();
+                break;
+            case 3:
+                text = Wage.W3.getDescription();
+                break;
+            case 5:
+                text = Wage.W3.getDescription();
+                break;
+            case 6:
+                text = Wage.W5.getDescription();
+                break;
+            case 7:
+                text = Wage.W7.getDescription();
+                break;
+            case 8:
+                text = Wage.W9.getDescription();
+                break;
+            default:
+                text = Wage.W1.getDescription();
+        }
+
+        holder.text.setText(text);
     }
 
     private void setProgress() {
@@ -192,6 +231,7 @@ public class CompareCriteriaDialog extends MainDialog {
     class ViewHolder {
         TextView criterium1;
         TextView criterium2;
+        TextView text;
         SeekBar sbr;
         ImageView img;
         Button btn_confirm;

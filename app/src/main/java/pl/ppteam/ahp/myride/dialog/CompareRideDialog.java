@@ -42,6 +42,7 @@ public class CompareRideDialog extends MainDialog {
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_ride_btn_confirm);
         holder.img_dialog_ride1 = (ImageView) this.findViewById(R.id.img_dialog_ride1);
         holder.img_dialog_ride2 = (ImageView) this.findViewById(R.id.img_dialog_ride2);
+        holder.text = (TextView) findViewById(R.id.dialog_item_text);
         holder.from_ride1 = (TextView) this.findViewById(R.id.item_dialog_ride1_from);
         holder.to_ride1 = (TextView) this.findViewById(R.id.item_dialog_ride1_to);
         holder.from_ride2 = (TextView) this.findViewById(R.id.item_dialog_ride2_from);
@@ -89,12 +90,14 @@ public class CompareRideDialog extends MainDialog {
 
         setProgress();
         setImage();
+        setText();
 
         holder.sbr.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 setImage();
+                setText();
             }
 
             @Override
@@ -159,6 +162,42 @@ public class CompareRideDialog extends MainDialog {
         }
 
         holder.img.setImageResource(resourceId);
+    }
+
+    private void setText() {
+        int value = holder.sbr.getProgress();
+        String text = "";
+
+        switch(value) {
+            case 0:
+                text = Wage.W9.getDescription();
+                break;
+            case 1:
+                text = Wage.W7.getDescription();
+                break;
+            case 2:
+                text = Wage.W5.getDescription();
+                break;
+            case 3:
+                text = Wage.W3.getDescription();
+                break;
+            case 5:
+                text = Wage.W3.getDescription();
+                break;
+            case 6:
+                text = Wage.W5.getDescription();
+                break;
+            case 7:
+                text = Wage.W7.getDescription();
+                break;
+            case 8:
+                text = Wage.W9.getDescription();
+                break;
+            default:
+                text = Wage.W1.getDescription();
+        }
+
+        holder.text.setText(text);
     }
 
     private void setProgress() {
@@ -236,6 +275,8 @@ public class CompareRideDialog extends MainDialog {
         SeekBar sbr;
         ImageView img;
         Button btn_confirm;
+
+        TextView text;
 
         ImageView img_dialog_ride1;
         ImageView img_dialog_ride2;

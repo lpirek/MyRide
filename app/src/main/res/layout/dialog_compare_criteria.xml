@@ -16,9 +16,17 @@
         android:id="@+id/dialog_item_criterium1" />
 
     <RelativeLayout
+        android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialog_item_text"
+            android:layout_centerHorizontal="true"
+            android:text="test" />
 
 
         <ImageView
@@ -27,6 +35,7 @@
             android:id="@+id/dialog_item_img"
             android:scaleType="fitCenter"
             android:alpha="0.3"
+            android:layout_marginTop="7dp"
             android:src="@drawable/equal"
             android:layout_centerHorizontal="true"
             android:padding="5dp"/>
@@ -36,6 +45,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/dialog_sbr"
             android:max="8"
+            android:layout_marginTop="7dp"
             android:progressDrawable="@android:color/transparent"
             android:background="@drawable/slider"
             android:layout_alignParentTop="true"
