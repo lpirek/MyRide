@@ -43,7 +43,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     private SearchResultScreenManager manager;
     private List<Ride> rideList;
-
+    private MeansOfTransport typ;
     private RideAdapter adapter;
     private RideQuery query;
 
@@ -131,7 +131,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
 
 
-        dialog = new AddRideDialog(this, DIALOG_CODE_ADD_RIDE, query);
+        dialog = new AddRideDialog(this, DIALOG_CODE_ADD_RIDE, query, rideList,typ);
         dialog.setListener(this);
         dialog.show();
 
@@ -179,12 +179,14 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         dialog.holder.spn_typ.setSelection(position);
+        typ = (MeansOfTransport ) parent.getItemAtPosition(position);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
 
 }

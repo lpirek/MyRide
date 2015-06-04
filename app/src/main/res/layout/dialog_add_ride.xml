@@ -17,8 +17,7 @@
             android:id="@+id/item_new_ride_from"
             android:layout_gravity="center_horizontal|left"
             android:textColor="@android:color/black"
-            android:layout_margin="5dp"
-            android:textSize="13dp" />
+            android:layout_margin="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +28,7 @@
             android:layout_gravity="center_horizontal|left"
             android:textColor="@android:color/black"
             android:layout_margin="5dp"
-            android:textSize="13dp" />
+            android:textSize="13dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,14 +100,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_new_ride_from"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="1dp" />
+            android:layout_margin="1dp"
+            android:textSize="13dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edt_new_ride_to"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="1dp" />
+            android:layout_margin="1dp"
+            android:textSize="13dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
         <Spinner
             android:layout_width="match_parent"
@@ -122,7 +131,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_cost_ride"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="1dp" />
+            android:layout_margin="1dp"
+            android:inputType="numberDecimal"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -145,7 +155,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_time_travel"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="1dp" />
+            android:layout_margin="1dp"
+            android:inputType="number"/>
 
         <Button
             android:layout_width="match_parent"

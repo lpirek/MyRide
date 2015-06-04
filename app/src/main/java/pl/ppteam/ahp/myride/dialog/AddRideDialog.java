@@ -3,6 +3,7 @@ package pl.ppteam.ahp.myride.dialog;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,15 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import pl.ppteam.ahp.myride.R;
+import pl.ppteam.ahp.myride.common.City;
+import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
 import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
@@ -31,11 +37,15 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
     private RideQuery query;
     private Calendar myCalendar = Calendar.getInstance();
     private Activity activity;
+    private List<Ride> list;
+    private MeansOfTransport typ;
 
-    public AddRideDialog(Activity activity, int code, RideQuery query) {
+    public AddRideDialog(Activity activity, int code, RideQuery query, List<Ride> list, MeansOfTransport typ) {
         super(activity, code);
         this.activity = activity;
         this.query = query;
+        this.list = list;
+        this.typ = typ;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +81,9 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         holder.edt_time_travel = (EditText) this.findViewById(R.id.edt_time_travel);
 
 
+        holder.edt_from_ride.setText(query.getFromCity().getName());
+        holder.edt_to_ride.setText(query.getToCity().getName());
+
         holder.spn_typ = (Spinner)this.findViewById(R.id.spn_typ_transport);
 
         holder.edt_start_date.setOnClickListener(this);
@@ -100,7 +113,50 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
     private void setValue()
     {
+        //MeansOfTransport typ = holder.spn_typ.getOnItemSelectedListener().onItemSelected();
+        String priceRide = holder.edt_cost_ride.getText().toString();
+        Double price;
+        Date rideFrom = null;
+        Date rideTo = null;
+        long rideTime;
 
+
+        try {
+            rideFrom =  new SimpleDateFormat("yyyy-MM-dd").parse(holder.edt_start_date.getText().toString());
+            rideTo =  new SimpleDateFormat("yyyy-MM-dd").parse(holder.edt_end_date.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if(priceRide == null || priceRide.isEmpty()) {
+
+            price = 0.0;
+
+        } else {
+
+            price = Double.parseDouble(priceRide);
+
+        }
+            if(rideFrom == null || rideTo == null) {
+
+                rideTime = 0;
+
+            } else {
+
+                rideTime = rideTo.getTime() - rideFrom.getTime();
+            }
+
+            int time = (int) rideTime;
+
+        list.add(list.size()+1,new Ride(list.size()+1,
+                typ,
+                query.getFromCity(),
+                query.getToCity(),
+                price,
+                false,
+                rideFrom,
+                rideTo,
+                time));
     }
 
     @Override
