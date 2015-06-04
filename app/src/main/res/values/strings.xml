@@ -33,13 +33,13 @@
     <string name="add_ride">Dodaj połączenie</string>
 
 
-    <string name="add_ride_txv_from">Miejscowość początkowa</string>
-    <string name="add_ride_txv_to">Miejscowość końcowa</string>
+    <string name="add_ride_txv_from">Z</string>
+    <string name="add_ride_txv_to">Do</string>
 
-    <string name="add_ride_txv_typ_transport">Rodzaj transportu</string>
-    <string name="add_ride_txv_cost">Koszt transportu</string>
-    <string name="add_ride_txv_date_start">Data wyjazdu</string>
-    <string name="add_ride_txv_date_end">Data przyjazdu</string>
+    <string name="add_ride_txv_typ_transport">Środek transportu</string>
+    <string name="add_ride_txv_cost">Koszt</string>
+    <string name="add_ride_txv_date_start">Wyjazd</string>
+    <string name="add_ride_txv_date_end">Przyjazd</string>
 
     <string name="add_ride_txv_time_travel">Czas podróży</string>
 
