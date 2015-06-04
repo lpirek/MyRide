@@ -25,14 +25,18 @@ import java.util.Locale;
  */
 public class RideAdapter extends BaseAdapter{
 
-    private final List<Ride> items;
-    private final Context context;
+    private List<Ride> items;
+    private Context context;
 
     private ViewHolder holder;
 
     public RideAdapter(Context context, List<Ride> items) {
         this.items = items;
         this.context = context;
+    }
+
+    public List<Ride> getItems() {
+        return items;
     }
 
     @Override

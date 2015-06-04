@@ -37,13 +37,12 @@ import pl.ppteam.ahp.myride.query.RideQuery;
 import pl.ppteam.ahp.myride.tool.Logger;
 
 
-public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener, IDialogListener, OnItemSelectedListener{
+public class SearchResultScreenActivity extends ActionBarActivity implements View.OnClickListener, OnItemClickListener, IDialogListener{
 
-    private static final int DIALOG_CODE_ADD_RIDE = 0;
+    private static final int DIALOG_CODE_ADD_RIDE = 1;
 
     private SearchResultScreenManager manager;
     private List<Ride> rideList;
-    private MeansOfTransport typ;
     private RideAdapter adapter;
     private RideQuery query;
 
@@ -98,7 +97,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_add_ride, menu);
+        getMenuInflater().inflate(R.menu.menu_search_result_screen, menu);
         return true;
     }
 
@@ -106,7 +105,6 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_ride:
-
                 addRide();
                 return true;
             default:
@@ -128,17 +126,9 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     private void addRide()
     {
-
-
-
-        dialog = new AddRideDialog(this, DIALOG_CODE_ADD_RIDE, query, rideList,typ);
+        dialog = new AddRideDialog(this, DIALOG_CODE_ADD_RIDE);
         dialog.setListener(this);
         dialog.show();
-
-        dialog.holder.spn_typ.setAdapter(new ArrayAdapter<MeansOfTransport>(this, android.R.layout.simple_list_item_1, MeansOfTransport.values()));
-        dialog.holder.spn_typ.setOnItemSelectedListener(this);
-
-
     }
 
     private void chooseRide() {
@@ -169,24 +159,13 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public void onPositiveClicked(int code) {
         switch (code) {
             case DIALOG_CODE_ADD_RIDE:
+                adapter.getItems().add(dialog.getAddedRide());
                 adapter.notifyDataSetChanged();
                 break;
             default:
                 Logger.info("Unkown action source!");
         }
     }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        dialog.holder.spn_typ.setSelection(position);
-        typ = (MeansOfTransport ) parent.getItemAtPosition(position);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
 
 
 }
