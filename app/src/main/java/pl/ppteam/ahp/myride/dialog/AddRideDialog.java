@@ -88,6 +88,8 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         holder.edt_end_date.setOnClickListener(this);
         holder.edt_end_date.setOnFocusChangeListener(this);
 
+        setCalendarsDefaultTime();
+
         updateDateStart();
         updateDateEnd();
         updateRideTime();
@@ -111,6 +113,18 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         });
 
 
+    }
+
+    private void setCalendarsDefaultTime() {
+
+        DateTime startDate = new DateTime(calendarFrom.getTime());
+        DateTime endDate = new DateTime(calendarTo.getTime());
+
+        startDate = startDate.plusHours(1).withMinuteOfHour(0).withSecondOfMinute(0).withMillisOfSecond(1);
+        endDate = endDate.plusHours(2).withMinuteOfHour(0).withSecondOfMinute(0).withMillisOfSecond(1);
+
+        calendarFrom.setTime(startDate.toDate());
+        calendarTo.setTime(endDate.toDate());
     }
 
     private boolean validate() {
