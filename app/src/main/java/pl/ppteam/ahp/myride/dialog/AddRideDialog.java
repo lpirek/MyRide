@@ -90,6 +90,7 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
         updateDateStart();
         updateDateEnd();
+        updateRideTime();
 
         holder.btn_confirm.setOnClickListener(new View.OnClickListener() {
 
