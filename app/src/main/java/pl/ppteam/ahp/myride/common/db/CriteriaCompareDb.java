@@ -17,10 +17,10 @@ import pl.ppteam.ahp.myride.common.Wage;
 public class CriteriaCompareDb extends Model {
 
     @Column(name = "Criterium1", notNull = true, onNullConflict = Column.ConflictAction.FAIL)
-    private int criterium1;
+    private String criterium1;
 
     @Column(name = "Criterium2", notNull = true, onNullConflict = Column.ConflictAction.FAIL)
-    private int criterium2;
+    private String criterium2;
 
     @Column(name = "Wage", notNull = true, onNullConflict = Column.ConflictAction.FAIL)
     private Wage wage;
@@ -34,11 +34,11 @@ public class CriteriaCompareDb extends Model {
 
     public CriteriaCompareDb(Criterium criterium1, Criterium criterium2) {
         super();
-        this.criterium1 = criterium1.getId();
-        this.criterium2 = criterium2.getId();
+        this.criterium1 = criterium1.getSymbol();
+        this.criterium2 = criterium2.getSymbol();
     }
 
-    public CriteriaCompareDb(int criterium1, int criterium2, Wage wage, Direction direction) {
+    public CriteriaCompareDb(String criterium1, String criterium2, Wage wage, Direction direction) {
         super();
         this.criterium1 = criterium1;
         this.criterium2 = criterium2;

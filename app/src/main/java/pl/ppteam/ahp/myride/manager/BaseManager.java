@@ -41,17 +41,17 @@ public class BaseManager {
      *
      */
 
-    City city1 = new City(1, "Wrocław", 51, 17);
-    City city2 = new City(2, "Kraków", 50, 19);
-    City city3 = new City(3, "Warszawa", 52, 21);
-    City city4 = new City(4, "Toruń", 53, 18);
-    City city5 = new City(5, "Poznań", 52, 16);
-    City city6 = new City(6, "Łódz", 51, 19);
+    City city1 = new City(1, "Wrocław", "WRO", 51, 17);
+    City city2 = new City(2, "Kraków", "KRK", 50, 19);
+    City city3 = new City(3, "Warszawa", "WAW", 52, 21);
+    City city4 = new City(4, "Toruń", "TOR", 53, 18);
+    City city5 = new City(5, "Poznań", "POZ", 52, 16);
+    City city6 = new City(6, "Łódz", "ŁDŹ", 51, 19);
 
-    City city7 = new City(7, "Gdańsk", 54, 18);
-    City city8 = new City(8, "Gdynia", 54, 18);
-    City city9 = new City(9, "Sopot", 54, 18);
-    City city10 = new City(10, "Opole", 50, 17);
+    City city7 = new City(7, "Gdańsk", "GDA", 54, 18);
+    City city8 = new City(8, "Gdynia", "GDY", 54, 18);
+    City city9 = new City(9, "Sopot", "SOP", 54, 18);
+    City city10 = new City(10, "Opole", "OPL", 50, 17);
 
     ArrayList<City> cityDB = new ArrayList<City>() {{
         add(city1);
@@ -183,13 +183,13 @@ public class BaseManager {
 
 
     ArrayList<Criterium> criteriumDB = new ArrayList<Criterium>() {{
-        add(new Criterium(1, "Cena"));
-        add(new Criterium(2, "Długość podróży"));
-        add(new Criterium(3, "Komfort"));
-        add(new Criterium(4, "Godzina odjazdu"));
-        add(new Criterium(5, "Godzina przyjazdu"));
-        add(new Criterium(6, "Rozmiar bagażu"));
-        add(new Criterium(7, "Dostęp do toalety"));
+        add(new Criterium(1, "Cena", "PRICE"));
+        add(new Criterium(2, "Długość podróży", "TIME"));
+        add(new Criterium(3, "Komfort", "COMFORT"));
+        add(new Criterium(4, "Godzina odjazdu", "START"));
+        add(new Criterium(5, "Godzina przyjazdu", "ARRIVE"));
+        add(new Criterium(6, "Rozmiar bagażu", "LUGGAGE"));
+        add(new Criterium(7, "Dostęp do toalety", "TOILET"));
     }};
 
     public List<City> getCityList(CityQuery query) {
@@ -224,6 +224,10 @@ public class BaseManager {
 
             if (query.getName() != null) {
                 pass = pass && query.getName().toLowerCase().equals(city.getName().toLowerCase());
+            }
+
+            if (query.getSymbol() != null) {
+                pass = pass && query.getSymbol().equals(city.getSymbol());
             }
 
             if (pass) {

@@ -18,10 +18,10 @@ import pl.ppteam.ahp.myride.common.City;
 public class RideQueryDb extends Model {
 
     @Column(name = "CityFrom", notNull = true, onNullConflict = Column.ConflictAction.FAIL)
-    private int cityFrom;
+    private String cityFrom;
 
     @Column(name = "CityTo", notNull = true, onNullConflict = Column.ConflictAction.FAIL)
-    private int cityTo;
+    private String cityTo;
 
     @Column(name = "Price", notNull = false, onNullConflict = Column.ConflictAction.FAIL)
     private double price;
@@ -44,31 +44,31 @@ public class RideQueryDb extends Model {
 
     public RideQueryDb(City cityFrom, City cityTo) {
         super();
-        this.cityFrom = cityFrom.getId();
-        this.cityTo = cityTo.getId();
+        this.cityFrom = cityFrom.getSymbol();
+        this.cityTo = cityTo.getSymbol();
         this.date = new Date();
     }
 
-    public RideQueryDb(int cityFrom, int cityTo) {
+    public RideQueryDb(String cityFrom, String cityTo) {
         super();
         this.cityFrom = cityFrom;
         this.cityTo = cityTo;
         this.date = new Date();
     }
 
-    public int getCityFrom() {
+    public String getCityFrom() {
         return cityFrom;
     }
 
-    public void setCityFrom(int cityFrom) {
+    public void setCityFrom(String cityFrom) {
         this.cityFrom = cityFrom;
     }
 
-    public int getCityTo() {
+    public String getCityTo() {
         return cityTo;
     }
 
-    public void setCityTo(int cityTo) {
+    public void setCityTo(String cityTo) {
         this.cityTo = cityTo;
     }
 

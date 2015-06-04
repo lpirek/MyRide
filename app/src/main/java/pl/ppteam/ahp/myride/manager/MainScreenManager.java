@@ -54,12 +54,12 @@ public class MainScreenManager {
             RideQuery query = new RideQuery();
 
             CityQuery fromCityQuery = new CityQuery();
-            fromCityQuery.setId(queryDb.getCityFrom());
+            fromCityQuery.setSymbol(queryDb.getCityFrom());
 
             query.setFromCity(this.getCity(fromCityQuery));
 
             CityQuery toCityQuery = new CityQuery();
-            toCityQuery.setId(queryDb.getCityTo());
+            toCityQuery.setSymbol(queryDb.getCityTo());
 
             query.setToCity(this.getCity(toCityQuery));
 

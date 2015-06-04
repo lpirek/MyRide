@@ -8,6 +8,7 @@ import java.util.List;
 public class City extends Item{
 
     private String name;
+    private String symbol;
 
     private List<PostCode> postCode;
     private double latitude; //szerokość geograficzna
@@ -17,14 +18,16 @@ public class City extends Item{
 
     }
 
-    public City(String name, double latitude, double longitude) {
+    public City(String name, String symbol, double latitude, double longitude) {
         this.name = name;
+        this.symbol = symbol;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public City(int id, String name, double latitude, double longitude) {
+    public City(int id, String name, String symbol, double latitude, double longitude) {
         this.id = id;
+        this.symbol = symbol;
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -36,6 +39,14 @@ public class City extends Item{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public double getLatitude() {

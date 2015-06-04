@@ -72,6 +72,23 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         setListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        rideQueries = manager.getLastRideQueries();
+
+        if (rideQueries.size() > 0) {
+            adapter = new LastSearchAdapter(this, rideQueries);
+            lv_last_search.setAdapter(adapter);
+            layout_last_search.setVisibility(View.VISIBLE);
+            lv_last_search.setVisibility(View.VISIBLE);
+        }
+        else {
+            layout_last_search.setVisibility(View.INVISIBLE);
+            lv_last_search.setVisibility(View.INVISIBLE);
+        }
+    }
+
     private void loadComponents() {
         btn_search = (Button) this.findViewById(R.id.main_screen_btn_search);
         edt_from = (AutoCompleteTextView) this.findViewById(R.id.main_screen_edt_from);
@@ -84,7 +101,6 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
     private void loadData() {
         //cityList = manager.getCityList();
         cityNames = manager.getCityNames();
-        rideQueries = manager.getLastRideQueries();
 
         fromCityQuery = new CityQuery();
         toCityQuery  = new CityQuery();
@@ -96,15 +112,6 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
         edt_to.setAdapter(adapterTo);
 
         updateDate();
-
-        if (rideQueries.size() > 0) {
-            adapter = new LastSearchAdapter(this, rideQueries);
-            lv_last_search.setAdapter(adapter);
-        }
-        else {
-            layout_last_search.setVisibility(View.INVISIBLE);
-            lv_last_search.setVisibility(View.INVISIBLE);
-        }
     }
 
     private void updateDate() {
@@ -204,10 +211,6 @@ public class MainScreenActivity extends ActionBarActivity implements View.OnClic
             RideQueryDb queryDb = new RideQueryDb(fromCity, toCity);
             queryDb.setStartDate(dateTime.toDate());
             queryDb.save();
-
-            rideQueries = manager.getLastRideQueries();
-            adapter = new LastSearchAdapter(this, rideQueries);
-            lv_last_search.setAdapter(adapter);
 
             Intent intent = new Intent(this, SearchResultScreenActivity.class);
             startActivity(intent);
