@@ -54,7 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/main_screen_btn_search"
-            android:id="@+id/main_screen_btn_search" />
+            android:focusableInTouchMode="true"
+            android:id="@+id/main_screen_btn_search" >
+            <requestFocus />
+        </Button>
 
         <RelativeLayout
             android:layout_marginTop="25dp"

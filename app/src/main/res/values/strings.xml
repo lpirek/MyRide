@@ -43,6 +43,6 @@
 
     <string name="add_ride_txv_time_travel">Czas podróży</string>
 
-    <string name="CENA" />
+    <string name="add_ride_btn_confirm">Dodaj</string>
 
 </resources>

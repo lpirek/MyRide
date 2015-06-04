@@ -77,17 +77,26 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
 
     private void loadData() {
         rideList = manager.getRideList(query);
+        adapter = new RideAdapter(this, rideList);
+        lv_result.setAdapter(adapter);
 
-        if (rideList.size() > 0) {
-            adapter = new RideAdapter(this, rideList);
-            lv_result.setAdapter(adapter);
-        }
-        else {
+        if (adapter.getCount() == 0) {
             btn_confirm.setVisibility(View.INVISIBLE);
             lv_result.setVisibility(View.INVISIBLE);
             img_empty.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    private void addToList() {
+        adapter.getItems().add(dialog.getAddedRide());
+        adapter.notifyDataSetChanged();
+
+        if (adapter.getCount() > 0) {
+            btn_confirm.setVisibility(View.VISIBLE);
+            lv_result.setVisibility(View.VISIBLE);
+            img_empty.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setListeners() {
@@ -159,8 +168,7 @@ public class SearchResultScreenActivity extends ActionBarActivity implements Vie
     public void onPositiveClicked(int code) {
         switch (code) {
             case DIALOG_CODE_ADD_RIDE:
-                adapter.getItems().add(dialog.getAddedRide());
-                adapter.notifyDataSetChanged();
+                addToList();
                 break;
             default:
                 Logger.info("Unkown action source!");
