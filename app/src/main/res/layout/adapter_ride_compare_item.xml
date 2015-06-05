@@ -176,7 +176,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:text="pr1"
                         android:layout_marginLeft="5dp"
@@ -195,7 +195,7 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:text="pr2"
                         android:layout_marginLeft="5dp"
@@ -214,7 +214,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -233,7 +233,7 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -253,7 +253,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -272,7 +272,7 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="120dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"

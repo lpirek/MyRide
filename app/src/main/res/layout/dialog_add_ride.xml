@@ -43,9 +43,16 @@
                 android:textSize="15dp" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_start_date_ride"
+                android:editable="false"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_start_time_ride"
                 android:editable="false"
                 android:textSize="15dp" />
 
@@ -65,12 +72,21 @@
                 android:textSize="15dp"/>
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_end_date_ride"
                 android:editable="false"
                 android:textIsSelectable="false"
                 android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_end_time_ride"
+                android:editable="false"
+                android:textIsSelectable="false"
+                android:textSize="15dp" />
+
         </LinearLayout>
 
         <LinearLayout

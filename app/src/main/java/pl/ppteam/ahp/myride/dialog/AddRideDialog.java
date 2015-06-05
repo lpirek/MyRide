@@ -2,6 +2,7 @@ package pl.ppteam.ahp.myride.dialog;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
@@ -78,7 +80,9 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_newride_btn_confirm);
         holder.edt_cost_ride = (EditText) this.findViewById(R.id.edt_cost_ride);
         holder.edt_start_date = (EditText) this.findViewById(R.id.edt_start_date_ride);
+        holder.edt_start_time = (EditText) this.findViewById(R.id.edt_start_time_ride);
         holder.edt_end_date = (EditText) this.findViewById(R.id.edt_end_date_ride);
+        holder.edt_end_time = (EditText) this.findViewById(R.id.edt_end_time_ride);
         holder.time_travel = (TextView) this.findViewById(R.id.item_time_travel);
         holder.spn_typ = (Spinner) this.findViewById(R.id.spn_typ_transport);
         holder.edt_cost_ride.setText("0.00");
@@ -88,14 +92,20 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
         holder.edt_start_date.setOnClickListener(this);
         holder.edt_start_date.setOnFocusChangeListener(this);
+        holder.edt_start_time.setOnClickListener(this);
+        holder.edt_start_time.setOnFocusChangeListener(this);
 
         holder.edt_end_date.setOnClickListener(this);
         holder.edt_end_date.setOnFocusChangeListener(this);
+        holder.edt_end_time.setOnClickListener(this);
+        holder.edt_end_time.setOnFocusChangeListener(this);
 
         setCalendarsDefaultTime();
 
         updateDateStart();
+        updateTimeStart();
         updateDateEnd();
+        updateTimeEnd();
         updateRideTime();
 
         holder.btn_confirm.setOnClickListener(new View.OnClickListener() {
@@ -171,8 +181,14 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
             case R.id.edt_start_date_ride:
                 openDatePickerStart();
                 break;
+            case R.id.edt_start_time_ride:
+                openTimePickerStart();
+                break;
             case R.id.edt_end_date_ride:
                 openDatePickerEnd();
+                break;
+            case R.id.edt_end_time_ride:
+                openTimePickerEnd();
                 break;
             default:
                 Logger.info("Unkown action source!");
@@ -185,8 +201,14 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
             case R.id.edt_start_date_ride:
                 if (hasFocus) openDatePickerStart();
                 break;
+            case R.id.edt_start_time_ride:
+                if (hasFocus) openTimePickerStart();
+                break;
             case R.id.edt_end_date_ride:
                 if (hasFocus) openDatePickerEnd();
+                break;
+            case R.id.edt_end_time_ride:
+                if (hasFocus) openTimePickerEnd();
                 break;
             default:
                 Logger.info("Unkown action source!");
@@ -214,6 +236,24 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
     };
 
+    private void openTimePickerStart() {
+        new TimePickerDialog(activity, timeStart,
+                calendarFrom.get(Calendar.HOUR_OF_DAY),
+                calendarFrom.get(Calendar.MINUTE), true).show();
+    }
+
+    private TimePickerDialog.OnTimeSetListener timeStart =
+            new TimePickerDialog.OnTimeSetListener() {
+                public void onTimeSet(TimePicker view, int selectedHour,
+                                      int selectedMinute) {
+                    calendarFrom.set(Calendar.HOUR_OF_DAY, selectedHour);
+                    calendarFrom.set(Calendar.MINUTE, selectedMinute);
+
+                    updateTimeStart();
+                    updateRideTime();
+                }
+            };
+
     private void openDatePickerEnd() {
         new DatePickerDialog(activity, dateEnd,
                 calendarTo.get(Calendar.YEAR),
@@ -235,14 +275,38 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
     };
 
+    private void openTimePickerEnd() {
+        new TimePickerDialog(activity, timeEnd,
+                calendarTo.get(Calendar.HOUR_OF_DAY),
+                calendarTo.get(Calendar.MINUTE), true).show();
+    }
+
+    private TimePickerDialog.OnTimeSetListener timeEnd =
+            new TimePickerDialog.OnTimeSetListener() {
+                public void onTimeSet(TimePicker view, int selectedHour,
+                                      int selectedMinute) {
+                    calendarTo.set(Calendar.HOUR_OF_DAY, selectedHour);
+                    calendarTo.set(Calendar.MINUTE, selectedMinute);
+
+                    updateTimeEnd();
+                    updateRideTime();
+                }
+            };
+
     private void updateDateStart() {
-        holder.edt_start_date.setText(MessageFormat.format("{0} g.{1}",
-                new SimpleDateFormat("dd-MM-yyyy").format(calendarFrom.getTime()), new SimpleDateFormat("HH:mm").format(calendarFrom.getTime())));
+        holder.edt_start_date.setText(new SimpleDateFormat("dd-MM-yyyy").format(calendarFrom.getTime()));
+    }
+
+    private void updateTimeStart() {
+        holder.edt_start_time.setText(new SimpleDateFormat("HH:mm").format(calendarFrom.getTime()));
     }
 
     private void updateDateEnd() {
-        holder.edt_end_date.setText(MessageFormat.format("{0} g.{1}",
-                new SimpleDateFormat("dd-MM-yyyy").format(calendarTo.getTime()), new SimpleDateFormat("HH:mm").format(calendarTo.getTime())));
+        holder.edt_end_date.setText(new SimpleDateFormat("dd-MM-yyyy").format(calendarTo.getTime()));
+    }
+
+    private void updateTimeEnd() {
+        holder.edt_end_time.setText(new SimpleDateFormat("HH:mm").format(calendarTo.getTime()));
     }
 
     private void updateRideTime() {
@@ -266,7 +330,9 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         Button btn_confirm;
         EditText edt_cost_ride;
         EditText edt_start_date;
+        EditText edt_start_time;
         EditText edt_end_date;
+        EditText edt_end_time;
         TextView time_travel;
         Spinner spn_typ;
     }
