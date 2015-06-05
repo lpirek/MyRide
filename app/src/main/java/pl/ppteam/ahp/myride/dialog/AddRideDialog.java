@@ -22,11 +22,14 @@ import org.joda.time.Minutes;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import pl.ppteam.ahp.myride.R;
+import pl.ppteam.ahp.myride.adapter.MeansOfTransportAdapter;
 import pl.ppteam.ahp.myride.common.City;
 import pl.ppteam.ahp.myride.common.MeansOfTransport;
 import pl.ppteam.ahp.myride.common.Ride;
@@ -42,7 +45,7 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
     private Ride ride;
     private Activity activity;
 
-    private ArrayAdapter<MeansOfTransport> adapter;
+    private MeansOfTransportAdapter adapter;
 
     private Calendar calendarFrom = Calendar.getInstance();
     private Calendar calendarTo = Calendar.getInstance();
@@ -80,7 +83,7 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         holder.spn_typ = (Spinner) this.findViewById(R.id.spn_typ_transport);
         holder.edt_cost_ride.setText("0.00");
 
-        adapter = new ArrayAdapter<MeansOfTransport>(activity, android.R.layout.simple_list_item_1, MeansOfTransport.values());
+        adapter = new MeansOfTransportAdapter(activity, Arrays.asList(MeansOfTransport.values()));
         holder.spn_typ.setAdapter(adapter);
 
         holder.edt_start_date.setOnClickListener(this);
