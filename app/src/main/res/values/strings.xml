@@ -41,7 +41,7 @@
     <string name="add_ride_txv_date_start">Wyjazd</string>
     <string name="add_ride_txv_date_end">Przyjazd</string>
 
-    <string name="add_ride_txv_time_travel">Czas podróży</string>
+    <string name="add_ride_txv_time_travel">Czas podróży:</string>
 
     <string name="add_ride_btn_confirm">Dodaj</string>
 

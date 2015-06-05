@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 import pl.ppteam.ahp.myride.R;
+import pl.ppteam.ahp.myride.common.Criterium;
 import pl.ppteam.ahp.myride.common.RideCompare;
 import pl.ppteam.ahp.myride.common.Direction;
 import pl.ppteam.ahp.myride.common.Wage;
@@ -20,11 +22,13 @@ import pl.ppteam.ahp.myride.common.Wage;
  */
 public class CompareRideDialog extends MainDialog {
 
+    private Criterium criterium;
     private RideCompare compare;
     private ViewHolder holder;
 
-    public CompareRideDialog(Activity activity, int code, RideCompare compare) {
+    public CompareRideDialog(Activity activity, int code, Criterium criterium, RideCompare compare) {
         super(activity, code);
+        this.criterium = criterium;
         this.compare = compare;
     }
     @Override
@@ -49,11 +53,10 @@ public class CompareRideDialog extends MainDialog {
         holder.to_ride2 = (TextView) this.findViewById(R.id.item_dialog_ride2_to);
         holder.startDate_ride1 = (TextView) this.findViewById(R.id.item_dialog_startDate_ride1);
         holder.startDate_ride2 = (TextView) this.findViewById(R.id.item_dialog_startDate_ride2);
-        holder.endDate_ride1 = (TextView) this.findViewById(R.id.item_dialog_endDate_ride1);
-        holder.endDate_ride2 = (TextView) this.findViewById(R.id.item_dialog_endDate_ride2);
-        holder.item_line_ride1 = (TextView) this.findViewById(R.id.item_dialog_line_ride1);
-        holder.item_line_ride2 = (TextView) this.findViewById(R.id.item_dialog_line_ride2);
-
+        holder.title1 = (TextView) this.findViewById(R.id.item_dialog_feature_title1);
+        holder.title2 = (TextView) this.findViewById(R.id.item_dialog_feature_title2);
+        holder.value1 = (TextView) this.findViewById(R.id.item_dialog_feature_value1);
+        holder.value2 = (TextView) this.findViewById(R.id.item_dialog_feature_value2);
 
         holder.img_dialog_ride1.setImageResource(compare.getRide1().getTransportType().getImage());
         holder.img_dialog_ride2.setImageResource(compare.getRide2().getTransportType().getImage());
@@ -67,27 +70,7 @@ public class CompareRideDialog extends MainDialog {
         holder.startDate_ride1.setText(compare.getRide1().getFormatStartDate());
         holder.startDate_ride2.setText(compare.getRide2().getFormatStartDate());
 
-        //if (compare.getRide1().getEndDate() == null)
-        //{
-            holder.endDate_ride1.setText("");
-            holder.endDate_ride1.setVisibility(View.GONE);
-            holder.item_line_ride1.setText("");
-            holder.item_line_ride1.setVisibility(View.GONE);
-        //}else {
-        //    holder.endDate_ride1.setText(compare.getRide1().getFormatEndDate());
-        //}
-
-        //if(compare.getRide2().getEndDate() == null)
-        //{
-            holder.endDate_ride2.setText("");
-            holder.endDate_ride2.setVisibility(View.GONE);
-            holder.item_line_ride2.setText("");
-            holder.item_line_ride2.setVisibility(View.GONE);
-        //}
-        //else {
-        //    holder.endDate_ride2.setText(compare.getRide2().getFormatEndDate());
-        //}
-
+        setFeatures();
         setProgress();
         setImage();
         setText();
@@ -126,6 +109,46 @@ public class CompareRideDialog extends MainDialog {
         });
 
 
+    }
+
+
+    private void setFeatures() {
+
+        switch(criterium.getSymbol()) {
+            case Criterium.priceSymbol:
+                setFeatures("Koszt:",
+                        new DecimalFormat("0.00").format(compare.getRide1().getPrice()) + " zł",
+                        new DecimalFormat("0.00").format(compare.getRide2().getPrice()) + " zł");
+                break;
+            case Criterium.arriveSymbol:
+                setFeatures("Przyjazd:", compare.getRide1().getFormatEndDate(), compare.getRide2().getFormatEndDate());
+                break;
+            case Criterium.comfortSymbol:
+                setFeatures("", "", "");
+                break;
+            case Criterium.luggageSymbol:
+                setFeatures("", "", "");
+                break;
+            case Criterium.startSymbol:
+                setFeatures("", "", "");
+                break;
+            case Criterium.timeSymbol:
+                setFeatures("Długość podróży:", compare.getRide1().getFormatRideTime(), compare.getRide2().getFormatRideTime());
+                break;
+            case Criterium.toiletSymbol:
+                setFeatures("", "", "");
+                break;
+            default:
+                setFeatures("", "", "");
+
+        }
+    }
+
+    private void setFeatures(String title, String value1, String value2) {
+        holder.title1.setText(title);
+        holder.title2.setText(title);
+        holder.value1.setText(value1);
+        holder.value2.setText(value2);
     }
 
     private void setImage() {
@@ -290,11 +313,11 @@ public class CompareRideDialog extends MainDialog {
         TextView startDate_ride1;
         TextView startDate_ride2;
 
-        TextView endDate_ride1;
-        TextView endDate_ride2;
+        TextView value1;
+        TextView value2;
 
-        TextView item_line_ride1;
-        TextView item_line_ride2;
+        TextView title1;
+        TextView title2;
     }
 
 }

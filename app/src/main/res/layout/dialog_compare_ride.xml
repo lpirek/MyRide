@@ -19,7 +19,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="39dp"
+            android:layout_height="wrap_content"
             android:gravity="left">
 
             <LinearLayout
@@ -69,21 +69,27 @@
                     android:id="@+id/item_dialog_startDate_ride1"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/item_dialog_line_ride1"
-                    android:text=" - "
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DataDo1"
+                    android:text="Test"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:id="@+id/item_dialog_endDate_ride1"
+                    android:id="@+id/item_dialog_feature_title1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test"
+                    android:id="@+id/item_dialog_feature_value1"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
@@ -93,7 +99,8 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
@@ -135,8 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:gravity="right"
-        android:weightSum="1">
+        android:gravity="right">
 
         <LinearLayout
             android:orientation="vertical"
@@ -194,21 +200,31 @@
                     android:id="@+id/item_dialog_startDate_ride2"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/item_dialog_line_ride2"
-                    android:text=" - "
+                    android:text="Test"
+                    android:id="@+id/item_dialog_feature_title2"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DataDo2"
+                    android:text="Test"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:id="@+id/item_dialog_endDate_ride2"
+                    android:id="@+id/item_dialog_feature_value2"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
             </LinearLayout>
 
         </LinearLayout>

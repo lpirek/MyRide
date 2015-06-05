@@ -19,6 +19,7 @@ import android.widget.Toast;
 import org.joda.time.DateTime;
 import org.joda.time.Minutes;
 
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -48,6 +49,8 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
 
     private ViewHolder holder;
 
+    private int rideTime;
+
     public AddRideDialog(Activity activity, int code) {
         super(activity, code);
         this.activity = activity;
@@ -61,22 +64,20 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.setTitle(
+                BaseController.getInstance().getRideQuery().getFromCity().getName() + " >> " +
+                        BaseController.getInstance().getRideQuery().getToCity().getName());
         //Konstruowanie dialogu
         setContentView(R.layout.dialog_add_ride);
 
         holder = new ViewHolder();
 
         holder.btn_confirm = (Button) this.findViewById(R.id.dialog_newride_btn_confirm);
-        holder.edt_from_ride = (EditText) this.findViewById(R.id.edt_new_ride_from);
-        holder.edt_to_ride = (EditText) this.findViewById(R.id.edt_new_ride_to);
         holder.edt_cost_ride = (EditText) this.findViewById(R.id.edt_cost_ride);
         holder.edt_start_date = (EditText) this.findViewById(R.id.edt_start_date_ride);
         holder.edt_end_date = (EditText) this.findViewById(R.id.edt_end_date_ride);
-        holder.edt_time_travel = (EditText) this.findViewById(R.id.edt_time_travel);
+        holder.time_travel = (TextView) this.findViewById(R.id.item_time_travel);
         holder.spn_typ = (Spinner) this.findViewById(R.id.spn_typ_transport);
-
-        holder.edt_from_ride.setText(BaseController.getInstance().getRideQuery().getFromCity().getName());
-        holder.edt_to_ride.setText(BaseController.getInstance().getRideQuery().getToCity().getName());
         holder.edt_cost_ride.setText("0.00");
 
         adapter = new ArrayAdapter<MeansOfTransport>(activity, android.R.layout.simple_list_item_1, MeansOfTransport.values());
@@ -135,7 +136,6 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
         Date endDate = calendarTo.getTime();
         double price = 0;
         boolean toilet = false;
-        int rideTime = 0;
 
         //Walidacja dat
         if (endDate.before(startDate) || endDate.equals(startDate)) {
@@ -156,9 +156,6 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
                 return false;
             }
         }
-
-        String timeRide = holder.edt_time_travel.getText().toString();
-        rideTime = Integer.parseInt(timeRide);
 
         ride = new Ride(typ, cityFrom, cityTo, price, toilet, startDate, endDate, rideTime);
 
@@ -236,37 +233,38 @@ public class AddRideDialog extends MainDialog implements View.OnClickListener, V
     };
 
     private void updateDateStart() {
-        holder.edt_start_date.setText(new SimpleDateFormat("dd-MM-yyyy HH:mm").format(calendarFrom.getTime()));
+        holder.edt_start_date.setText(MessageFormat.format("{0} g.{1}",
+                new SimpleDateFormat("dd-MM-yyyy").format(calendarFrom.getTime()), new SimpleDateFormat("HH:mm").format(calendarFrom.getTime())));
     }
 
     private void updateDateEnd() {
-        holder.edt_end_date.setText(new SimpleDateFormat("dd-MM-yyyy HH:mm").format(calendarTo.getTime()));
+        holder.edt_end_date.setText(MessageFormat.format("{0} g.{1}",
+                new SimpleDateFormat("dd-MM-yyyy").format(calendarTo.getTime()), new SimpleDateFormat("HH:mm").format(calendarTo.getTime())));
     }
 
     private void updateRideTime() {
-        int difference = 0;
-
         DateTime startDate = new DateTime(calendarFrom.getTime());
         DateTime endDate = new DateTime(calendarTo.getTime());
 
         Minutes minutes = Minutes.minutesBetween(startDate, endDate);
-        difference = minutes.getMinutes();
+        rideTime = minutes.getMinutes();
 
-        if (difference < 0) {
-            difference = 0;
+        if (rideTime < 0) {
+            rideTime = 0;
         }
 
-        holder.edt_time_travel.setText(String.valueOf(difference));
+        int hours = rideTime / 60;
+        int minuts = rideTime - (hours * 60);
+
+        holder.time_travel.setText(MessageFormat.format("{0}h {1}", hours, minuts != 0 ? minuts : ""));
     }
 
     public class ViewHolder {
         Button btn_confirm;
-        EditText edt_from_ride;
-        EditText edt_to_ride;
         EditText edt_cost_ride;
         EditText edt_start_date;
         EditText edt_end_date;
-        EditText edt_time_travel;
+        TextView time_travel;
         Spinner spn_typ;
     }
 }

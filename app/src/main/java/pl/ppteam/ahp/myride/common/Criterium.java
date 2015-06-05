@@ -5,13 +5,13 @@ package pl.ppteam.ahp.myride.common;
  */
 public class Criterium extends Item {
 
-    private static final String priceSymbol = "PRICE";
-    private static final String timeSymbol = "TIME";
-    private static final String startSymbol = "START";
-    private static final String arriveSymbol = "ARRIVE";
-    private static final String comfortSymbol = "COMFORT";
-    private static final String luggageSymbol = "LUGGAGE";
-    private static final String toiletSymbol = "TOILET";
+    public static final String priceSymbol = "PRICE";
+    public static final String timeSymbol = "TIME";
+    public static final String startSymbol = "START";
+    public static final String arriveSymbol = "ARRIVE";
+    public static final String comfortSymbol = "COMFORT";
+    public static final String luggageSymbol = "LUGGAGE";
+    public static final String toiletSymbol = "TOILET";
 
     private String name;
     private String symbol;
