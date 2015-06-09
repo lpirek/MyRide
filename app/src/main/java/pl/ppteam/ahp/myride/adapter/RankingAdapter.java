@@ -93,7 +93,7 @@ public class RankingAdapter extends BaseAdapter {
                 holder.disparityView.setBackgroundColor(Color.rgb(0, 255, 0));
                 isSet = true;
             }
-            else if (Math.abs(currentRide.getRankingValue() - nextRide.getRankingPosition()) > 0.1) {
+            else if (Math.abs(currentRide.getRankingValue() - nextRide.getRankingValue()) > 0.1) {
                 holder.disparityView.setBackgroundColor(Color.rgb(255, 0, 0));
                 isSet = true;
             }
