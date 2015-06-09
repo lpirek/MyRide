@@ -65,116 +65,116 @@ public class BaseManager {
     ArrayList<Ride> rideDB = new ArrayList<Ride>() {{
         try {
             add(new Ride(1, MeansOfTransport.BUS, city1, city2, 34.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 12:25"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 15:25"), 180));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 12:25"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 15:25"), 180));
 
             add(new Ride(2, MeansOfTransport.TRAIN, city1, city2, 27.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 23:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 3:20"), 250));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 23:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 3:20"), 250));
 
             add(new Ride(3, MeansOfTransport.PLANE, city1, city2, 60.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 20:00"), 50));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 20:00"), 50));
 
             add(new Ride(4, MeansOfTransport.CAR, city1, city2, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 18:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 21:00"), 150));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 18:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 21:00"), 150));
 
             add(new Ride(5, MeansOfTransport.CAR, city1, city2, 42.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 7:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 11:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 7:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 11:00"), 210));
 
             add(new Ride(7, MeansOfTransport.BUS, city1, city2, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 15:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 15:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:00"), 210));
 
             add(new Ride(8, MeansOfTransport.TRAIN, city1, city2, 37.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 22:00"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-04 1:30"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 22:00"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-11 1:30"), 210));
 
             add(new Ride(9, MeansOfTransport.BUS, city1, city5, 34.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 12:25"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 15:25"), 180));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 12:25"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 15:25"), 180));
 
             add(new Ride(10, MeansOfTransport.TRAIN, city5, city3, 27.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 23:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 3:20"), 250));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 23:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 3:20"), 250));
 
             add(new Ride(11, MeansOfTransport.PLANE, city3, city5, 60.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 20:00"), 50));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 20:00"), 50));
 
             add(new Ride(12, MeansOfTransport.CAR, city6, city4, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 18:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 21:00"), 150));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 18:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 21:00"), 150));
 
             add(new Ride(13, MeansOfTransport.CAR, city1, city4, 42.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 7:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 11:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 7:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 11:00"), 210));
 
             add(new Ride(14, MeansOfTransport.BUS, city6, city4, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 15:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 15:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:00"), 210));
 
             add(new Ride(15, MeansOfTransport.TRAIN, city4, city3, 37.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 22:00"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-04 1:30"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 22:00"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-11 1:30"), 210));
 
             add(new Ride(16, MeansOfTransport.BUS, city2, city3, 34.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 12:25"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 15:25"), 180));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 12:25"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 15:25"), 180));
 
             add(new Ride(17, MeansOfTransport.TRAIN, city4, city5, 27.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 23:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 3:20"), 250));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 23:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 3:20"), 250));
 
             add(new Ride(18, MeansOfTransport.PLANE, city5, city6, 60.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 20:00"), 50));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 20:00"), 50));
 
             add(new Ride(19, MeansOfTransport.CAR, city2, city5, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 18:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 21:00"), 150));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 18:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 21:00"), 150));
 
             add(new Ride(20, MeansOfTransport.CAR, city5, city2, 42.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 7:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 11:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 7:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 11:00"), 210));
 
             add(new Ride(21, MeansOfTransport.BUS, city5, city2, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 15:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 15:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:00"), 210));
 
             add(new Ride(22, MeansOfTransport.TRAIN, city5, city4, 37.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 22:00"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-04 1:30"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 22:00"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-11 1:30"), 210));
 
             add(new Ride(23, MeansOfTransport.BUS, city3, city5, 34.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 12:25"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 15:25"), 180));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 12:25"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 15:25"), 180));
 
             add(new Ride(24, MeansOfTransport.TRAIN, city5, city3, 27.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 23:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 3:20"), 250));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 23:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 3:20"), 250));
 
             add(new Ride(25, MeansOfTransport.PLANE, city3, city5, 60.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 19:10"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 20:00"), 50));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 19:10"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 20:00"), 50));
 
             add(new Ride(26, MeansOfTransport.CAR, city6, city4, 35.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 18:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-02 21:00"), 150));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 18:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-09 21:00"), 150));
 
             add(new Ride(27, MeansOfTransport.CAR, city2, city4, 42.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 7:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 11:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 7:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 11:00"), 210));
 
             add(new Ride(28, MeansOfTransport.BUS, city6, city4, 32.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 15:30"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 19:00"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 15:30"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 19:00"), 210));
 
             add(new Ride(29, MeansOfTransport.TRAIN, city6, city3, 37.0, true,
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-03 22:00"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-04 1:30"), 210));
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-10 22:00"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2015-06-11 1:30"), 210));
 
         } catch (ParseException e1) {
             e1.printStackTrace();

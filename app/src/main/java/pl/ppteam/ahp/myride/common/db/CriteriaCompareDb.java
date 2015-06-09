@@ -67,7 +67,7 @@ public class CriteriaCompareDb extends Model {
         return new Select()
                 .from(CriteriaCompareDb.class)
                 .where("(Criterium1 = ? AND Criterium2 = ?) OR (Criterium1 = ? AND Criterium2 = ?)",
-                        c1.getId(), c2.getId(), c2.getId(), c1.getId())
+                        c1.getSymbol(), c2.getSymbol(), c2.getSymbol(), c1.getSymbol())
                 .executeSingle();
     }
 
