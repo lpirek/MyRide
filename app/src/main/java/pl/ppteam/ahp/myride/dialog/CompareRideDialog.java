@@ -3,6 +3,7 @@ package pl.ppteam.ahp.myride.dialog;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -35,6 +36,7 @@ public class CompareRideDialog extends MainDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //Konstruowanie dialogu
         setContentView(R.layout.dialog_compare_ride);

@@ -116,7 +116,7 @@ public class CompareCriteriaScreenActivity extends ActionBarActivity implements 
 
         if (!result) {
             new AlertDialog.Builder(this)
-                    .setMessage("Zaproponowane dane nie są poprawne. \nCzy chcesz przejść dalej?")
+                    .setMessage("Chyba popełniłeś gdzieś błąd. Rozważ poprawe zaproponowanych danych. \nCzy chcesz przejść dalej?")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                         public void onClick(DialogInterface dialog, int whichButton) {
