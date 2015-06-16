@@ -18,9 +18,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Test"
         android:id="@+id/item_criterium1"
+        android:textSize="16sp"
         android:layout_marginTop="5dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -29,9 +29,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Test"
         android:id="@+id/item_criterium2"
+        android:textSize="16sp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

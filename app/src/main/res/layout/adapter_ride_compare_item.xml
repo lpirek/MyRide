@@ -171,13 +171,14 @@
                 <LinearLayout
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:text="pr1"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -187,6 +188,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".30"
                         android:gravity="center"
                         android:text="@string/compare_ride_price"
                         android:layout_marginLeft="5dp"
@@ -195,8 +197,9 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:text="pr2"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -209,13 +212,14 @@
                 <LinearLayout
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:text="tr1"
@@ -223,8 +227,9 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".30"
                         android:gravity="center"
                         android:text="@string/compare_ride_time"
                         android:layout_marginLeft="5dp"
@@ -233,8 +238,9 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:text="tr2"
@@ -248,13 +254,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="7dp"
                     android:gravity="center"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:text="tr1"
@@ -264,6 +271,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".30"
                         android:gravity="center"
                         android:text="@string/compare_ride_to"
                         android:layout_marginLeft="5dp"
@@ -272,11 +280,12 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:layout_width="110dp"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight=".35"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:text="tr2"
+                        android:text="dlugi_tr2"
                         android:id="@+id/item_endDate_ride2"
                         android:gravity="right"
                         android:textAppearance="?android:attr/textAppearanceSmall" />

@@ -22,7 +22,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_screen_txv_from" />
 
         <AutoCompleteTextView
@@ -33,7 +32,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_screen_txv_to" />
 
         <AutoCompleteTextView
@@ -44,7 +42,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/main_screen_txv_date" />
 
         <EditText
